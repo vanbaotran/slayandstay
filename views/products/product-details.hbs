@@ -1,0 +1,21 @@
+<h3 id='h3-inactive'>Shop>Products></h3><h3 id='h2-active'>{{theProduct.productName}}</h3>
+
+<img id='image-active' src='{{theProduct.pictureURL.[0]}}'>
+<img id='image-inactive' src='{{theProduct.pictureURL.[1]}}'>
+<img id='image-inactive' src='{{theProduct.pictureURL.[2]}}'>
+<img id='image-inactive' src='{{theProduct.pictureURL.[3]}}'>
+
+
+<h2 id='h2-active'>{{theProduct.productName}}</h2>
+<div id='heart'>
+{{!-- switch to id='heart-filled' when clicked --}}
+</div>
+<p>{{theProduct.price}}€</p>
+<p>Size {{theProduct.size}}</p>
+<button>BUY NOW</button>
+<button>ADD TO BAG</button>
+<p>Description: {{theProduct.description}}</p>
+<p>Measurements: {{theProduct.measurements}}</p>
+<button><a href='/products/{{theProduct._id}}/edit'>
+    Edit this post  
+</a></button>

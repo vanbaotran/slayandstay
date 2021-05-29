@@ -1,0 +1,31 @@
+<h1>Upload a new item</h1>
+<form action='/products/create' method="POST" enctype="multipart/form-data">
+<label>
+    Product Name
+    <input type='text' name='productName'>
+</label>
+<label>
+    Description 
+    <input type='text' name='description'>
+</label>
+<label>
+    Price 
+    <input type='text' name='price'>
+</label>
+<label>
+    Size 
+    <input type='text' name='size'>
+</label>
+<label>
+    Measurements 
+    <input type='text' name='measurements'>
+</label>
+<label>
+    Photo 
+    <input type='file' name='pictureURL' multiple>
+</label>
+<button>Upload</button>
+{{#if errorMessage}}
+{{errorMessage}}
+{{/if}}
+</form>

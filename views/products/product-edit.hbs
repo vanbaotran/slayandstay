@@ -1,0 +1,31 @@
+<h1>Edit this item</h1>
+<form action='/products/{{theProduct._id}}/edit' method="POST" enctype="multipart/form-data">
+<label>
+    Product Name
+    <input type='text' name='productName' value='{{theProduct.productName}}'>
+</label>
+<label>
+    Description 
+    <input type='text' name='description'value='{{theProduct.description}}'>
+</label>
+<label>
+    Price 
+    <input type='text' name='price' value='{{theProduct.price}}'>
+</label>
+<label>
+    Size 
+    <input type='text' name='size' value='{{theProduct.size}}'>
+</label>
+<label>
+    Measurements 
+    <input type='text' name='measurements' value='{{theProduct.measurements}}'>
+</label>
+<label>
+    Photos:
+    <input type='file' name='pictureURL' multiple value="{{theProduct.picturesURL}}">
+</label>
+<button>Edit</button>
+{{#if errorMessage}}
+{{errorMessage}}
+{{/if}}
+</form>
