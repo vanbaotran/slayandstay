@@ -25,9 +25,18 @@ const userSchema = new Schema(
         lowercase: true,
         trim: true
       },
-      passwordHash: {
+      wishlist: {
+        type: [mongoose.Schema.Types.ObjectId, ref: 'Product'],
+      },
+      address: {
         type: String,
-        required: [true, 'Password is required.']
+      },
+      postalCode: {
+        type: Number,
+      },
+      country: {
+        type: String,
+        
       }
     },
     {

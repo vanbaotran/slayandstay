@@ -7,7 +7,7 @@ const bcryptjs = require('bcryptjs');
 const salt = bcryptjs.genSaltSync(10)
 
 
-
+///////BEGINNING AUTHENTICATION//////////////////////
 /////////////////Signup Routes///////////////////////
 // .get() route ==> to display the signup form to users
 router.get('/signup', (req, res) => res.render('auth/signup'));
@@ -100,8 +100,22 @@ router.post('/login', (req, res, next) => {
       }
     })
     .catch(error => next(error));
+
+// LOGOUTTTTTT
+    router.post('/logout', (req, res) => {
+      req.session.destroy();
+      res.redirect('/');
+    });
+
+
+
+
+/////////END AUTHENTICATION////////////////
+
+
+
+
+
 });
-
-
 
 module.exports = router;
