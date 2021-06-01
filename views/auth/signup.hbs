@@ -1,0 +1,37 @@
+<div id="signup">
+  <h2>Signup</h2>
+  <h2> WELCOME TO THE CLUB!!!</h2>
+  <form action="/signup" method="POST">
+    <label>
+      First Name
+      <input type="text" name="firstName" placeholder="Your first name" />
+    </label>
+
+     <label>
+      Last Name
+      <input type="text" name="lastName" placeholder="Your last name" />
+    </label>
+
+    <label>
+      Email
+      <input type="email" id="input-email" name="email" placeholder="Your email" />
+    </label>
+
+    <label>
+      Password
+      <input type="password" name="password" id="input-password" placeholder="********" />
+    </label>
+    
+    <label> Upload a picture <input type=file name"picture" id="user-photo"/> </label>
+
+    <button>Log in</button>
+    <button>Sign Up</button>
+
+{{#if errorMessage}}
+{{errorMessage}}
+{{/if}}
+
+  </form>
+</div>
+
+{{!missing nav bar at bottom and at top (the home > sign up)//}}
