@@ -12,10 +12,15 @@
 </div>
 <p>{{theProduct.price}}€</p>
 <p>Size {{theProduct.size}}</p>
+<a href='/:id/orders/add'>
 <button>BUY NOW</button>
+</a>
 <button>ADD TO BAG</button>
 <p>Description: {{theProduct.description}}</p>
 <p>Measurements: {{theProduct.measurements}}</p>
 <button><a href='/products/{{theProduct._id}}/edit'>
     Edit this post  
+</a></button>
+<button><a href='/products/{{theProduct._id}}/delete'>
+    Delete this post  
 </a></button>

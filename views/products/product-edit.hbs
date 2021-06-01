@@ -22,9 +22,18 @@
 </label>
 <label>
     Photos:
-    <input type='file' name='pictureURL' multiple value="{{theProduct.picturesURL}}">
+    <img src="{{theProduct.pictureURL.[0]}}">
+    <input type='file' name='pictureURL0'>
+    <img src="{{theProduct.pictureURL.[1]}}">
+    <input type='file' name='pictureURL1'>
+    <img src="{{theProduct.pictureURL.[2]}}">
+    <input type='file' name='pictureURL2'>
+    <img src="{{theProduct.pictureURL.[3]}}">
+    <input type='file' name='pictureURL3'>
+
 </label>
-<button>Edit</button>
+<button>Edit this product</button>
+
 {{#if errorMessage}}
 {{errorMessage}}
 {{/if}}

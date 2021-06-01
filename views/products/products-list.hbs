@@ -1,11 +1,16 @@
+<section id='products-list'>
 <ul>
-<li>
+
 {{#each allProducts}}
+<li>
 <a href='/products/{{_id}}'>
-    <img src='{{pictureURL.[0]}}'>
+    <img class='product-img' src='{{pictureURL.[0]}}'>
     <h3>{{productName}}</h3>
 </a>
-
-{{/each}}
 </li>
+{{/each}}
 </ul>
+<button><a href='/products/create'>
+Upload an item</a></button>
+
+</section>

@@ -1,8 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin:5%;
+  font: 14px "EB Garamond", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/*
+##    ##    ###    ##     ##         ########     ###    ########  
+###   ##   ## ##   ##     ##         ##     ##   ## ##   ##     ## 
+####  ##  ##   ##  ##     ##         ##     ##  ##   ##  ##     ## 
+## ## ## ##     ## ##     ## ####### ########  ##     ## ########  
+##  #### #########  ##   ##          ##     ## ######### ##   ##   
+##   ### ##     ##   ## ##           ##     ## ##     ## ##    ##  
+##    ## ##     ##    ###            ########  ##     ## ##     ## 
+*/
+  #top-nav-bar {
+  width: 100%;
+}
+#nav-bar {
+  padding: 5%;
+  background-color: #FCF5F0;
+  display: flex;
+  justify-content: space-between;
+}
+/*
+##     ##  #######  ##     ## ######## ########     ###     ######   ######## 
+##     ## ##     ## ###   ### ##       ##     ##   ## ##   ##    ##  ##       
+##     ## ##     ## #### #### ##       ##     ##  ##   ##  ##        ##       
+######### ##     ## ## ### ## ######   ########  ##     ## ##   #### ######   
+##     ## ##     ## ##     ## ##       ##        ######### ##    ##  ##       
+##     ## ##     ## ##     ## ##       ##        ##     ## ##    ##  ##       
+##     ##  #######  ##     ## ######## ##        ##     ##  ######   ######## 
+*/
+#homepage  h2{
+ text-align: center;
+}
+#homepage img{
+  width: 100%;
+  height: 50%;
+}
+#homepage .features {
+  display:flex;
+}
+#homepage .features h3{
+  margin:auto;
+}
+#homepage .features img{
+  width: 50%;
+}
+.stars {
+  display: flex;
+}
+.stars li {
+  width: 2%;
+}
+
+#info-contact img {
+  width: 5%;
+}
+
+#displayImg {
+  height: 40%;
+  margin: 0 auto;
+  width: 40%;
+}
+
+
+
+
+
+
+
+/*
+########  ########   #######  ########  ##     ##  ######  ########  ######     ########     ###     ######   ######## 
+##     ## ##     ## ##     ## ##     ## ##     ## ##    ##    ##    ##    ##    ##     ##   ## ##   ##    ##  ##       
+##     ## ##     ## ##     ## ##     ## ##     ## ##          ##    ##          ##     ##  ##   ##  ##        ##       
+########  ########  ##     ## ##     ## ##     ## ##          ##     ######     ########  ##     ## ##   #### ######   
+##        ##   ##   ##     ## ##     ## ##     ## ##          ##          ##    ##        ######### ##    ##  ##       
+##        ##    ##  ##     ## ##     ## ##     ## ##    ##    ##    ##    ##    ##        ##     ## ##    ##  ##       
+##        ##     ##  #######  ########   #######   ######     ##     ######     ##        ##     ##  ######   ######## 
+*/
+@media (min-width:900px){
+  #products-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin:0;
+}
+}
+#products-list ul li{
+  margin: 10%;
+  width: 30%;
+  height: 30%;
+}
+.product-img {
+  margin: 10%;
 }
