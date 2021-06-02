@@ -29,44 +29,40 @@ if (!regex.test(password)) {
     .render('auth/signup', { errorMessage: 'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.' });
   return;
 }
-
-
+User.findOne({email})
+  .then(user=>{
+    if (!user==null){
+      res.render('auth/signup',{errorMessage:'The email already exists'})
+    }
+  })
  // 1. hash password
   const hashedPassword = bcryptjs.hashSync(password, salt)
   console.log(`Password hash: ${hashedPassword}`);  
 
-  router.get('/user-profile', (req, res) => {
-    res.render('users/user-profile');
-  });
-//{ userInSession: req.session.currentUser }
-
-// 2.put data to database
-  User.create({
-    firstName,
-    lastName,
-    email,
-    passwordHash: hashedPassword
-  })
-  
-    .then(user => {
-      console.log('Newly created user is: ', user);
-      res.redirect('/user-profile');
+  // 2.put data to database
+    User.create({
+      firstName,
+      lastName,
+      email,
+      passwordHash: hashedPassword
     })
-    
-    .catch(error => {
-      if (error instanceof mongoose.Error.ValidationError) {
-          res.status(500).render('auth/signup', { errorMessage: error.message });
-        } else if (error.code === 11000) {
-         res.status(500).render('auth/signup', {
-         errorMessage: 'Email is already in use'
-          });
-      }
-      else {
-          next(error);
-      }
-    })
-
-    
+      .then(user => {
+        console.log('Newly created user is: ', user);
+        res.redirect('/user-profile');
+      })
+      .catch(error => {
+        if (error instanceof mongoose.Error.ValidationError) {
+            res.status(500).render('auth/signup', { errorMessage: error.message });
+          } else if (error.code === 11000) {
+          res.status(500).render('auth/signup', {
+          errorMessage: 'Email is already in use'
+            });
+        }
+        else {
+            next(error);
+        }
+      })
+    .catch(err=>next(err))
 });
 
 //////////LOGIN/////////////////
