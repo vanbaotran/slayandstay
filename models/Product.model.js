@@ -3,7 +3,6 @@ const productSchema = new mongoose.Schema({
 	productName: String,
 	pictureURL: {
         type: [String],
-        required: true
     },
 	description: String,
 	price: Number,

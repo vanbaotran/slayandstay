@@ -2,13 +2,12 @@
 
 {{!-- STILL NEED TO DO HTML--}}
 
-
-{{#if req.session.currentUser}}
-    <h2>Welcome, {{ userInSession.fistname }}!</h2>
-    <p>This is your profile page my friend!</p>
-    <button>
-        <a href="/userProfile">Reload the page</a>
-    </button>
+{{#if user}}
+  <h2>Welcome, {{ user.firstName }}!</h2>
+  <p>This is your profile page my friend!</p>
+  <button>
+    <a href="/userprofile">Reload the page</a>
+  </button>
 {{else}}
-    <p>Still no logged in user, sorry!</p>
+  <p>Still no logged in user, sorry!</p>
 {{/if}}

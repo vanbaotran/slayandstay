@@ -67,20 +67,28 @@ router.post('/:id/edit',fileUploader.fields([{name: 'pictureURL0', maxCount: 1},
        productFromDB.measurements = req.body.measurements;
        productFromDB.size = req.body.size;
     //    if new image is chosen then update the matching photo
-    console.log('req.files.path', req.files.path)
-    console.log('productFromDB.pictureURL0', productFromDB.pictureURL1)
-    
+    console.log('req.files', req.files)
+    console.log('productFromDB.pictureURL[0]', productFromDB.pictureURL[0])
+
         if(req.files.pictureURL0[0].path){
             productFromDB.pictureURL0= req.files.pictureURL0[0].path;
+        } else {
+            productFromDB.pictureURL0 =  productFromDB.pictureURL[0];
         }
         if(req.files.pictureURL1[0].path){
             productFromDB.pictureURL1= req.files.pictureURL1[0].path;
+        } else {
+            productFromDB.pictureURL1 =  productFromDB.pictureURL[1];
         }
         if(req.files.pictureURL2[0].path){
             productFromDB.pictureURL2= req.files.pictureURL2[0].path;
+        } else {
+            productFromDB.pictureURL2 =  productFromDB.pictureURL[2];
         }
         if(req.files.pictureURL3[0].path){
             productFromDB.pictureURL3= req.files.pictureURL3[0].path;
+        } else {
+            productFromDB.pictureURL3 =  productFromDB.pictureURL[3];
         }
         picArray.push(productFromDB.pictureURL0,productFromDB.pictureURL1,productFromDB.pictureURL2,productFromDB.pictureURL3)
         productFromDB.pictureURL=picArray;

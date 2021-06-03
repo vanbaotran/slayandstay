@@ -3,6 +3,7 @@ const { Model } = require('mongoose');
 const router = express.Router();
 const Product = require('../models/Product.model')
 const Order = require('../models/Order.model')
+const User = require('../models/user.model')
 
 router.get('/:id/orders/add',(req,res,next)=>{
     const total = 0;
@@ -10,6 +11,7 @@ router.get('/:id/orders/add',(req,res,next)=>{
     .populate('product')
     .then(productFromDB=>{
         total+= productFromDB.price;
+        console.log(req.session.currentUser)
         console.log('item added to cart', productFromDB)
         console.log('total', total)
         Order.create({
@@ -17,7 +19,10 @@ router.get('/:id/orders/add',(req,res,next)=>{
             userId: req.session.currentUser._id, 
             total: total,
         })
-        .then(()=>res.render('orders/shopping-cart',{theProduct:productFromDB}))
+        .then(order =>{
+            console.log('order newly created', order)
+            res.render('orders/shopping-cart',{newOrder:order})
+        })
         .catch(err=>next(err))
     })
     .catch(err=>next(err))

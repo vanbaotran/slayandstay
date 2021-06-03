@@ -15,8 +15,6 @@ const userSchema = new Schema(
         trim: true,
         required: [true, 'last name is required.'],
       },
-
-
       email: {
         type: String,
         match:[/^\S+@\S+\.\S+$/, 'Please use a valid email address'],
@@ -25,9 +23,12 @@ const userSchema = new Schema(
         lowercase: true,
         trim: true
       },
-      wishlist: {
-        type: [mongoose.Schema.Types.ObjectId, ref: 'Product'],
+      passwordHash: {
+        type: String,
+        required: [true, 'Password is required.']
       },
+      wishlist: 
+        [ {type: Schema.Types.ObjectId, ref : 'Product'}],
       address: {
         type: String,
       },

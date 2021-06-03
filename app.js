@@ -16,10 +16,10 @@ const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const app = express();
 
-
+require('./configs/session.config')(app);
 
 mongoose
-  .connect('mongodb://localhost/project2', {useNewUrlParser: true},{ useUnifiedTopology: true })
+  .connect('mongodb://localhost/project2', {useNewUrlParser: true}, { useUnifiedTopology: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -40,7 +40,6 @@ app.use(
       })
   })
 );
-
 
 
 // Middleware Setup
