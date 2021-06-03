@@ -19,7 +19,7 @@ router.get('/:id/orders/add',(req,res,next)=>{
             userId: req.session.currentUser._id, 
             total: total,
         })
-        .then(order =>{
+        .then(order=>{
             console.log('order newly created', order)
             res.render('orders/shopping-cart',{newOrder:order})
         })
@@ -27,5 +27,15 @@ router.get('/:id/orders/add',(req,res,next)=>{
     })
     .catch(err=>next(err))
 })
+///////ADD TO BAG//////////
+router.get('/:id/addtobag',(req,res,next)=>{
+    const cart = [];
+    Product.findById(req.params.id)
+    .populate('product')
+    .then(productFromDB=>{
+        console.log(productFromDB.produc)
+    })
+})
+
 
 module.exports = router;

@@ -70,31 +70,46 @@ router.post('/:id/edit',fileUploader.fields([{name: 'pictureURL0', maxCount: 1},
     console.log('req.files', req.files)
     console.log('productFromDB.pictureURL[0]', productFromDB.pictureURL[0])
 
-        if(req.files.pictureURL0[0].path){
-            productFromDB.pictureURL0= req.files.pictureURL0[0].path;
-        } else {
-            productFromDB.pictureURL0 =  productFromDB.pictureURL[0];
+        if (req.files.pictureURL0) {
+            productFromDB.pictureURL.set(0,req.files.pictureURL0[0].path)
         }
-        if(req.files.pictureURL1[0].path){
-            productFromDB.pictureURL1= req.files.pictureURL1[0].path;
-        } else {
-            productFromDB.pictureURL1 =  productFromDB.pictureURL[1];
+        if (req.files.pictureURL1) {
+            productFromDB.pictureURL.set(1,req.files.pictureURL1[0].path)
         }
-        if(req.files.pictureURL2[0].path){
-            productFromDB.pictureURL2= req.files.pictureURL2[0].path;
-        } else {
-            productFromDB.pictureURL2 =  productFromDB.pictureURL[2];
+        if (req.files.pictureURL2) {
+            productFromDB.pictureURL.set(2,req.files.pictureURL2[0].path)
         }
-        if(req.files.pictureURL3[0].path){
-            productFromDB.pictureURL3= req.files.pictureURL3[0].path;
-        } else {
-            productFromDB.pictureURL3 =  productFromDB.pictureURL[3];
+        if (req.files.pictureURL3) {
+            productFromDB.pictureURL.set(3,req.files.pictureURL3[0].path)
         }
-        picArray.push(productFromDB.pictureURL0,productFromDB.pictureURL1,productFromDB.pictureURL2,productFromDB.pictureURL3)
-        productFromDB.pictureURL=picArray;
+
+        // if(req.files.pictureURL0[0].path){
+        //     productFromDB.pictureURL0= req.files.pictureURL0[0].path;
+        // } else {
+        //     productFromDB.pictureURL0 =  productFromDB.pictureURL[0];
+        // }
+        // if(req.files.pictureURL1[0].path){
+        //     productFromDB.pictureURL1= req.files.pictureURL1[0].path;
+        // } else {
+        //     productFromDB.pictureURL1 =  productFromDB.pictureURL[1];
+        // }
+        // if(req.files.pictureURL2[0].path){
+        //     productFromDB.pictureURL2= req.files.pictureURL2[0].path;
+        // } else {
+        //     productFromDB.pictureURL2 =  productFromDB.pictureURL[2];
+        // }
+        // if(req.files.pictureURL3[0].path){
+        //     productFromDB.pictureURL3= req.files.pictureURL3[0].path;
+        // } else {
+        //     productFromDB.pictureURL3 =  productFromDB.pictureURL[3];
+        // }
+        // picArray.push(productFromDB.pictureURL[0],productFromDB.pictureURL[1],productFromDB.pictureURL[2],productFromDB.pictureURL[3])
+        // productFromDB.pictureURL=picArray;
         
        productFromDB.save()
-       .then(()=>res.redirect(`/products/${productFromDB._id}`))
+       .then(()=>{
+           res.redirect(`/products/${productFromDB._id}`)
+        })
        .catch(err=>next(err))
    })
    .catch(err=>next(err))
