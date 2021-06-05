@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const User = require('../models/User.model')
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
-
+const fileUploader = require('../configs/cloudinary.config');
 
 
 ///////BEGINNING AUTHENTICATION//////////////////////
@@ -15,7 +15,7 @@ router.get('/signup', (req, res) => res.render('auth/signup'));
 
 
 // .post() route ==> to process form data
-router.post('/signup', (req, res, next) => {
+router.post('/signup', fileUploader.single('pictureURL'),(req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
 
   if (!firstName || !lastName || !email |!password) {
@@ -44,6 +44,7 @@ User.findOne({email})
         firstName,
         lastName,
         email,
+        pictureURL:req.file.path,
         passwordHash: hashedPassword
       })
       .then(user => {
@@ -82,6 +83,9 @@ router.post('/login', (req, res, next) => {
       } else if (bcrypt.compareSync(password, user.passwordHash)) {
         req.session.currentUser = user;
         res.render('users/user-profile',{user})
+        if(req.session.order){
+          res.redirect('/checkout')
+        }
       } else {
         res.render('auth/login', { errorMessage: 'Incorrect password.' });
       }
@@ -134,10 +138,6 @@ router.post('/logout', (req, res) => {
 ///WISHLIST ROUTE///
 router.get('/wishlist', (req, res) => res.render('users/wishlist'));
 //returns
-
-app.route('/login', (req, res) => {
-  res.render('login', {layout: 'main2'}) 
-})
 
 
 

@@ -1,0 +1,12 @@
+<h2>Thank you for your purchase!</h2>
+<h3>Details of your order</h3>
+{{#each theOrder.productId}}
+<div class='product-line'>
+    <img src='{{this.pictureURL.[0]}}'>
+    <h4>{{this.productName}}</h4>
+    <p>{{this.price}}<br>
+    Size:{{this.size}}</p>
+</div>
+{{/each}}
+<h4>Total: {{theOrder.total}}</h4>
+</div>

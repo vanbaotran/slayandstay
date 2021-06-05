@@ -1,12 +1,13 @@
 <h3 id='h3-inactive'>Home></h3><h3 id='h3-active'>Shopping cart</h3>
 
-{{#each theOrder.productId}}
+{{#each theProducts}}
 <div class='product-line'>
     <img src='{{this.pictureURL.[0]}}'>
     <h4>{{this.productName}}</h4>
     <p>{{this.price}}<br>
-    {{this.size}}</p>
+    Size: {{this.size}}</p>
 </div>
-{{/each}}
-<h4>Total: {{theOrder.total}}</h4>
+{{/each}}   
+<h4>Total: {{total}}</h4>
 </div>
+<a href='/checkout'><button>CHECK OUT</button></a>
