@@ -1,0 +1,12 @@
+<h3 id='h3-inactive'>Home></h3><h3 id='h3-inactive'>My orders></h3><h3 id='h3-active'>Order details</h3>
+<h4>Order number: {{theOrder}}</h4>
+{{#each theOrder.productId}}
+<div class='product-line'>
+    <img src='{{this.pictureURL.[0]}}'>
+    <h4>{{this.productName}}</h4>
+    <p>{{this.price}}<br>
+    {{this.size}}</p>
+</div>
+{{/each}}
+<h4>Total: {{theOrder.total}}</h4>
+</div>
