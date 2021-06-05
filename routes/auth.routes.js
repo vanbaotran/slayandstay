@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
 
 
+
 ///////BEGINNING AUTHENTICATION//////////////////////
 /////////////////Signup Routes///////////////////////
 // .get() route ==> to display the signup form to users
@@ -17,7 +18,7 @@ router.get('/signup', (req, res) => res.render('auth/signup'));
 router.post('/signup', (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
 
-  if (!firstName || !lastName || !email || !password) {
+  if (!firstName || !lastName || !email |!password) {
     res.render('auth/signup', { errorMessage: 'Make sure to fill out all the fields!' });
     return;
   }
@@ -59,7 +60,7 @@ User.findOne({email})
 
 //.get() route ==> to display log in form to users
 
-router.get('/login', (req, res) => res.render('auth/login'));
+router.get('/login', (req, res) => res.render('auth/login',{errorMessage: req.flash('error')}));
 
 //.post() form data is sent
 router.post('/login', (req, res, next) => {
@@ -91,10 +92,36 @@ router.post('/login', (req, res, next) => {
 router.get('/userprofile',(req,res)=>{
   res.render('users/user-profile',{user:req.session.currentUser})
 })
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, theUser, failureDetails) => {
+    if (err) {
+      // Something went wrong authenticating user
+      return next(err);
+    }
+ 
+    if (!theUser) {
+      // Unauthorized, `failureDetails` contains the error messages from our logic in "LocalStrategy" {message: '…'}.
+      res.render('auth/login', { errorMessage: 'Wrong password or email ' });
+      return;
+    }
+ 
+    // save user in session: req.user
+    req.login(theUser, err => {
+      if (err) {
+        // Session save went bad
+        return next(err);
+      }
+ 
+      // All good, we are now logged in and `req.user` is now set
+      res.redirect('/');
+    });
+  })(req, res, next);
+});
 
 // LOGOUTTTTTT
 router.post('/logout', (req, res) => {
   req.session.destroy();
+  // req.logout();
   res.redirect('/');
 });
 

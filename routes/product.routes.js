@@ -7,7 +7,7 @@ const { findOneAndUpdate } = require('../models/Product.model');
 /////////////////////////////////////////////////////////
 /////////////////////PRODUCT-LIST///////////////////////
 /////////////////////////////////////////////////////////
-router.get('/',(req,res,next)=>{
+router.get('/',(req,res,next)=>{    
     Product.find()
     .then(allProducts=>{
         res.render('products/products-list',{allProducts:allProducts})

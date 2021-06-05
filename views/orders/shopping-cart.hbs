@@ -3,9 +3,9 @@
 {{#each theOrder.productId}}
 <div class='product-line'>
     <img src='{{this.pictureURL.[0]}}'>
-    <h4>{{productName}}</h4>
-    <p>{{price}}<br>
-    {{size}}</p>
+    <h4>{{this.productName}}</h4>
+    <p>{{this.price}}<br>
+    {{this.size}}</p>
 </div>
 {{/each}}
 <h4>Total: {{theOrder.total}}</h4>

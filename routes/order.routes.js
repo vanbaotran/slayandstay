@@ -29,7 +29,7 @@ router.get('/:id/orders',(req,res,next)=>{
         .then(productFromDB=>{
             Order.create({
                 productId: productFromDB._id,
-                // userId: req.session.currentUser._id, 
+                userId: req.session.currentUser._id, 
                 total: productFromDB.price ,
             })
             .then(order=>{
