@@ -37,7 +37,9 @@ const userSchema = new Schema(
       },
       country: {
         type: String,
-        
+      },
+      pictureURL: {
+        type: String,
       }
     },
     {

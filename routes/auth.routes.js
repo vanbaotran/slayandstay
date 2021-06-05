@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const User = require('../models/User.model')
 const bcrypt = require('bcryptjs');
 const salt = bcrypt.genSaltSync(10);
+const fileUploader = require('../configs/cloudinary.config');
 
 
 ///////BEGINNING AUTHENTICATION//////////////////////
@@ -14,8 +15,8 @@ router.get('/signup', (req, res) => res.render('auth/signup'));
 
 
 // .post() route ==> to process form data
-router.post('/signup', (req, res, next) => {
-  const { firstName, lastName, email, password } = req.body;
+router.post('/signup', fileUploader.single('pictureURL'), (req, res, next) => {
+  const { firstName, lastName, email, password, wishlist, address, postalCode, country } = req.body;
 
   if (!firstName || !lastName || !email || !password) {
     res.render('auth/signup', { errorMessage: 'Make sure to fill out all the fields!' });
@@ -43,17 +44,28 @@ User.findOne({email})
         firstName,
         lastName,
         email,
-        passwordHash: hashedPassword
+        passwordHash: hashedPassword,
+        wishlist,
+        address, 
+        postalCode,
+        country,
+        pictureURL:req.file.path
       })
       .then(user => {
         req.session.currentUser = user;
         console.log('Newly created user is: ', user);
         res.render('users/user-profile',{user});
+        console.log(req.file)
       })
       .catch(error => next(error))
       })
   .catch(err=>next(err))
 });
+
+
+module.exports = router;
+
+
 
 //////////LOGIN/////////////////
 
@@ -104,15 +116,11 @@ router.post('/logout', (req, res) => {
 /////////END AUTHENTICATION////////////////
 
 
+
+
 ///WISHLIST ROUTE///
+
 router.get('/wishlist', (req, res) => res.render('users/wishlist'));
-//returns
-
-app.route('/login', (req, res) => {
-  res.render('login', {layout: 'main2'}) 
-})
-
-
 
 
 
