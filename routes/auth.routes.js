@@ -131,4 +131,16 @@ router.post('/logout', (req, res) => {
 /////////END AUTHENTICATION////////////////
 
 
+///WISHLIST ROUTE///
+router.get('/wishlist', (req, res) => res.render('users/wishlist'));
+//returns
+
+app.route('/login', (req, res) => {
+  res.render('login', {layout: 'main2'}) 
+})
+
+
+
+
+
 module.exports = router;
