@@ -78,6 +78,7 @@ app.use('/products', productRouter);
 const authRouter = require('./routes/auth.routes');
 app.use('/', authRouter)
 
-
+const orderRouter = require('./routes/order.routes');
+app.use('/', orderRouter);
 
 module.exports = app;

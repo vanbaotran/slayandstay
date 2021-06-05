@@ -46,17 +46,11 @@ User.findOne({email})
         passwordHash: hashedPassword
       })
       .then(user => {
+        req.session.currentUser = user;
         console.log('Newly created user is: ', user);
         res.render('users/user-profile',{user});
       })
       .catch(error => next(error))
-        // if (error instanceof mongoose.Error.ValidationError) {
-        //     res.status(500).render('auth/signup', { errorMessage: error.message });
-        //   } else if (error.code === 11000) {
-        //   res.status(500).render('auth/signup', {errorMessage: 'Email is already in use'});
-        //   } else {
-        //     next(error);
-        //   }
       })
   .catch(err=>next(err))
 });

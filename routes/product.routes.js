@@ -83,26 +83,6 @@ router.post('/:id/edit',fileUploader.fields([{name: 'pictureURL0', maxCount: 1},
             productFromDB.pictureURL.set(3,req.files.pictureURL3[0].path)
         }
 
-        // if(req.files.pictureURL0[0].path){
-        //     productFromDB.pictureURL0= req.files.pictureURL0[0].path;
-        // } else {
-        //     productFromDB.pictureURL0 =  productFromDB.pictureURL[0];
-        // }
-        // if(req.files.pictureURL1[0].path){
-        //     productFromDB.pictureURL1= req.files.pictureURL1[0].path;
-        // } else {
-        //     productFromDB.pictureURL1 =  productFromDB.pictureURL[1];
-        // }
-        // if(req.files.pictureURL2[0].path){
-        //     productFromDB.pictureURL2= req.files.pictureURL2[0].path;
-        // } else {
-        //     productFromDB.pictureURL2 =  productFromDB.pictureURL[2];
-        // }
-        // if(req.files.pictureURL3[0].path){
-        //     productFromDB.pictureURL3= req.files.pictureURL3[0].path;
-        // } else {
-        //     productFromDB.pictureURL3 =  productFromDB.pictureURL[3];
-        // }
         // picArray.push(productFromDB.pictureURL[0],productFromDB.pictureURL[1],productFromDB.pictureURL[2],productFromDB.pictureURL[3])
         // productFromDB.pictureURL=picArray;
         
@@ -131,7 +111,6 @@ router.get('/:id',(req,res,next)=>{
     const id=req.params.id;
     Product.findOne({_id: id})
     .then(productFromDB=>{
-        console.log('the product found',productFromDB)
         res.render('products/product-details',{theProduct:productFromDB})
     })
 })
