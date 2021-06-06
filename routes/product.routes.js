@@ -14,7 +14,7 @@ router.get('/',(req,res,next)=>{
     //     }
         Product.find()
         .then(allProducts=>{
-        res.render('products/products-list',{allProducts:allProducts, isAdmin: req.session.role})
+        res.render('products/products-list',{allProducts:allProducts})
         })
         .catch(err=>next(err))
         // }

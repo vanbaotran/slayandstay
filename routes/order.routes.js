@@ -98,6 +98,7 @@ router.get('/myorders',(req,res,next)=>{
             let productsArray = orders.map(el=>el.productId)
             res.render('orders/my-orders',{myOrders: orders})
         })
+        .catch(err=>next(err))
     }
 })
 
