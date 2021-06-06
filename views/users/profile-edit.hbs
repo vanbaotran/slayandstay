@@ -1,0 +1,31 @@
+<div id="profile-edit">
+  <h2>Edit your profile</h2>
+  <form action="/userprofile/edit" method="POST" enctype="multipart/form-data">
+    <label>
+      First Name
+      <input type="text" name="firstName" value="{{user.firstName}}" />
+    </label>
+     <label>
+      Last Name
+      <input type="text" name="lastName" value="{{user.lastName}}" />
+    </label>
+    <label>
+      Email
+      <input type="email" id="input-email" name="email" value="{{user.email}}" />
+    </label>
+    <label>
+      Password
+      <input type="password" name="password" id="input-password" value="**********" />
+    </label>
+    <img src='{{user.pictureURL}}'>
+    <label> Upload a picture <input type="file" name="pictureURL" id="user-photo"/></label>
+
+    <button>Submit my edit</button>
+
+{{#if errorMessage}}
+{{errorMessage}}
+{{/if}}
+
+  </form>
+</div>
+

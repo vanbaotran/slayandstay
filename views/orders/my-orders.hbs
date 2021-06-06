@@ -1,9 +1,14 @@
-<h3 id='h3-inactive'>Home></h3><h3 id='h3-active'>My orders></h3>
+<h3 id='h3-inactive'>Home></h3><h3 id='h3-active'>My orders</h3>
+{{#if myOrders}}
 {{#each myOrders}}
     <h4>Order number: {{_id}}</h4>
     <div class='product-line'></div>
-        <img src='{{productId.pictureURL.[0]}}'>    
+        <img src='{{this.productId.[0].pictureURL.[0]}}'>    
+        <p>{{this.productId.[0].productName}}</p>
     </div>
-    {{/each}}
+    
   <h4>Total: {{total}}</h4>
 {{/each}}
+{{else}}
+You do not have any order.
+{{/if}}

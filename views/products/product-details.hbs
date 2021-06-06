@@ -18,9 +18,11 @@
 <a href='/{{theProduct._id}}/addtobag'><button>ADD TO BAG</button></a>
 <p>Description: {{theProduct.description}}</p>
 <p>Measurements: {{theProduct.measurements}}</p>
+{{#if admin}}
 <button><a href='/products/{{theProduct._id}}/edit'>
     Edit this post  
 </a></button>
 <button><a href='/products/{{theProduct._id}}/delete'>
     Delete this post  
 </a></button>
+{{/if}}

@@ -6,6 +6,11 @@ router.get('/', (req, res, next) => {
   Product.find()
   .then(productsFromDB =>{
     const random = Math.floor(Math.random()*productsFromDB.length);
+    // const $arrowLeft = document.querySelector('arrow-left')
+    // const $arrowRight = document.querySelector('arrow-right')
+    // $arrowLeft.onclick = function clickLeft() {random--}
+    // $arrowRight.onclick = function clickRight() {random++}
+    // console.log('random:',random)
     res.render('index',{theProduct:productsFromDB[random]});
   })
   .catch(err=>next(err))

@@ -7,26 +7,31 @@ const { findOneAndUpdate } = require('../models/Product.model');
 /////////////////////////////////////////////////////////
 /////////////////////PRODUCT-LIST///////////////////////
 /////////////////////////////////////////////////////////
-router.get('/',(req,res,next)=>{    
-    Product.find()
-    .then(allProducts=>{
-        res.render('products/products-list',{allProducts:allProducts})
-    })
+router.get('/',(req,res,next)=>{ 
+    // if(req.session.currentUser){
+    //     if(req.session.currentUser.email===process.env.ADMIN){
+    //        req.session.role = 'Admin'
+    //     }
+        Product.find()
+        .then(allProducts=>{
+        res.render('products/products-list',{allProducts:allProducts, isAdmin: req.session.role})
+        })
+        .catch(err=>next(err))
+        // }
 })
 
 /////////////////////////////////////////////////////////
 ////////////////////UPLOAD AN ITEM///////////////////////
 /////////////////////////////////////////////////////////
-
+//only Admin can upload an item
 router.get('/create',(req,res,next)=>{
-    // if (!req.session.currentUser){
-    //     res.redirect('/login')
-    //     return
-    //   }
-    res.render('products/product-create')
+    if (req.session.role = 'ADMIN'){
+        res.render('products/product-create')
+    }
 })
 router.post('/create',fileUploader.fields([{name:'pictureURL',maxCount:4}]),(req,res,next)=>{
     const {productName, description, price, size,measurements}=req.body;
+
     if (!productName) {
         res.render('products/product-create', { errorMessage: 'Please provide the productName.' });
         return;
@@ -51,16 +56,17 @@ router.post('/create',fileUploader.fields([{name:'pictureURL',maxCount:4}]),(req
 /////////////////////EDIT PRODUCT-DETAILS////////////////
 /////////////////////////////////////////////////////////
 router.get('/:id/edit',(req,res,next)=>{
-    Product.findOne({_id:req.params.id})
-    .then(productFromDB=>{
-        res.render('products/product-edit',{theProduct:productFromDB})
-    })
-    .catch(err=>next(err))
+    if(req.session.currentUser.email=process.env.ADMIN){
+        Product.findOne({_id:req.params.id})
+        .then(productFromDB=>{
+            res.render('products/product-edit',{theProduct:productFromDB})
+        })  
+        .catch(err=>next(err))
+    }
 })
 router.post('/:id/edit',fileUploader.fields([{name: 'pictureURL0', maxCount: 1},{name: 'pictureURL1', maxCount: 1},{name: 'pictureURL2', maxCount: 1},{name: 'pictureURL3', maxCount: 1}]),(req,res,next)=>{
    Product.findById(req.params.id)
    .then(productFromDB=>{
-       const picArray=[];
        productFromDB.productName = req.body.productName;
        productFromDB.description = req.body.description;
        productFromDB.price = req.body.price;
@@ -69,7 +75,6 @@ router.post('/:id/edit',fileUploader.fields([{name: 'pictureURL0', maxCount: 1},
     //    if new image is chosen then update the matching photo
     console.log('req.files', req.files)
     console.log('productFromDB.pictureURL[0]', productFromDB.pictureURL[0])
-
         if (req.files.pictureURL0) {
             productFromDB.pictureURL.set(0,req.files.pictureURL0[0].path)
         }
@@ -81,11 +86,7 @@ router.post('/:id/edit',fileUploader.fields([{name: 'pictureURL0', maxCount: 1},
         }
         if (req.files.pictureURL3) {
             productFromDB.pictureURL.set(3,req.files.pictureURL3[0].path)
-        }
-
-        // picArray.push(productFromDB.pictureURL[0],productFromDB.pictureURL[1],productFromDB.pictureURL[2],productFromDB.pictureURL[3])
-        // productFromDB.pictureURL=picArray;
-        
+        }        
        productFromDB.save()
        .then(()=>{
            res.redirect(`/products/${productFromDB._id}`)

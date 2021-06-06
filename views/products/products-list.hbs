@@ -10,7 +10,8 @@
 </li>
 {{/each}}
 </ul>
-<button><a href='/products/create'>
-Upload an item</a></button>
-
+{{#if isAdmin}}
+<button><a href='/products/create'>Upload an item</a></button>
+{{/if}}
 </section>
+
