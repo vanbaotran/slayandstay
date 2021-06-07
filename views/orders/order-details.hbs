@@ -10,19 +10,40 @@
 {{/each}}
 <h4>Total: {{theOrder.total}}</h4>
 </div>
-<form action='/submitReview' method="POST">
+{{#if theReview}}
+<h4>Your review</h4>
+<p>Subject:{{theReview.subjectLine}}</p>
+<p>Rating: {{theReview.rating}}/5 ☆</p>
+
+<p>{{theReview.reviewDetails}}</p>
+<a href='/{{theReview._id}}/deleteReview'>Delete this review</a>
+{{/if}}
+
+      
+<form name='reviewForm' action='/myorders/{{theOrder._id}}/submitReview' method="POST">
     <label>
-        Subject Line:
+        Subject:
         <input type="text" name='subjectLine'>
     </label>
         <div class='review-content'>
-        <ul class='rating'>
-            <li class='star-active'><img src='/images/star.png'></li>
-            <li class='star-active'><img src='/images/star.png'></li>
-              <li class='star-active'><img src='/images/star.png'></li>
-                <li class='star-active'><img src='/images/star.png'></li>
-            <li class='star-unactive'><img src='/images/star.png'></li>
-        </ul> 
+        <div class="txt-center">
+            <form>
+                <div class="rating">
+                    <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                    <label for="star5">☆</label>
+                    <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                    <label for="star4">☆</label>
+                    <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                    <label for="star3">☆</label>
+                    <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                    <label for="star2">☆</label>
+                    <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                    <label for="star1">☆</label>
+                    <div class="clear"></div>
+                </div>
+             </form>
+        </div>    
+        
      <label>
         <input type="text" name='reviewDetails'>
     </label>

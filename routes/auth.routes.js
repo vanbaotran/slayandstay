@@ -10,9 +10,9 @@ const fileUploader = require('../configs/cloudinary.config');
 
 ///////BEGINNING AUTHENTICATION//////////////////////
 /////////////////Signup Routes///////////////////////
+//PUBLIC
 // .get() route ==> to display the signup form to users
 router.get('/signup', (req, res) => res.render('auth/signup'));
-
 
 // .post() route ==> to process form data
 router.post('/signup', fileUploader.single('pictureURL'),(req, res, next) => {
@@ -62,9 +62,8 @@ User.findOne({email})
   .catch(err=>next(err))
 });
 
-//////////CHECK ROLES/////////////////
-
 //////////LOGIN/////////////////
+//REGISTERED
 
 //.get() route ==> to display log in form to users
 

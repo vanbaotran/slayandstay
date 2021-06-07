@@ -6,6 +6,7 @@ const Product = require('../models/Product.model')
 const Order = require('../models/Order.model')
 const Review = require('../models/Review.model')
 ///////ADD TO BAG//////////
+//PUBLIC
 router.get('/:id/addtobag',(req,res,next)=>{
     console.log(req.params.id)
     //if shopping cart is not empty and the selected item is not already in the the cart
@@ -32,6 +33,7 @@ function calculateTotal(productsArray){
     })  
 }
 //BONUS: POP-UP 'ADDED TO BAG'/CONTINUE SHOPPING/CHECK OUT--> use flash
+//PUBLIC
 router.get('/:id/buynow',(req,res,next)=>{
     if (req.session.cart && req.session.cart.includes(req.params.id)===false) {
         req.session.cart.push(req.params.id)
@@ -41,7 +43,7 @@ router.get('/:id/buynow',(req,res,next)=>{
     res.redirect('/shoppingcart')
 })
 /////BUY NOW/////////POP-UP CHECKOUT 
-
+//PUBLIC BUT WILL ASK TO LOG IN
 router.get('/checkout',(req,res,next)=>{
     //make sure the client log in before placing an order
     if (!req.session.currentUser){
@@ -67,6 +69,7 @@ router.get('/checkout',(req,res,next)=>{
             .catch(err=>next(err))       
     }
 })
+//PUBLIC
 router.get('/shoppingcart',(req,res)=>{
     let productsArray = req.session.cart.filter((el)=>req.session.cart.indexOf(el)===req.session.cart.lastIndexOf(el))
     console.log('products Array', productsArray)
@@ -75,21 +78,26 @@ router.get('/shoppingcart',(req,res)=>{
     Promise.all(promises)
     .then(products=>{
         let priceArray = products.map(el=>el.price)
-        let total = priceArray.reduce((acc,el)=>acc+el)
+        let total = priceArray.reduce((acc,el)=>acc+el) //repeating function calculateTotal because we also need data from products 
         res.render('orders/shopping-cart',{theProducts:products,total:total})
-        // console.log('all products selected:', products) 
     })
     .catch(err=>console.log('error when retrieving Product info',err))
 })
+//LOGGED IN
 router.get('/orderconfirmation',(req,res,next)=>{
-    Order.findOne({userId:req.session.currentUser}).sort({createdAt:-1}) //tri en recuperant la derniere commande
-    .populate('productId')
-    .then(currentOrder=>{
-        console.log('current Order', currentOrder)
-        res.render('orders/order-confirmation',{theOrder:currentOrder})  
-    })
-    .catch(err=>next(err))
+    if (req.session.currentUser){
+        Order.findOne({userId:req.session.currentUser}).sort({createdAt:-1}) //tri en recuperant la derniere commande
+        .populate('productId')
+        .then(currentOrder=>{
+            console.log('current Order', currentOrder)
+            res.render('orders/order-confirmation',{theOrder:currentOrder})  
+        })
+        .catch(err=>next(err))
+    } else {
+        res.redirect('/')
+    }
 })
+//LOGGED IN
 router.get('/myorders',(req,res,next)=>{
     if (req.session.currentUser){
         Order.find({userId:req.session.currentUser})
@@ -99,8 +107,11 @@ router.get('/myorders',(req,res,next)=>{
             res.render('orders/my-orders',{myOrders: orders})
         })
         .catch(err=>next(err))
+    } else {
+        res.redirect('/')
     }
 })
+//LOGGED IN
 router.get('/myorders/:id',(req,res,next)=>{
     if (req.session.currentUser){
         const orderId = req.params.id;
@@ -110,11 +121,48 @@ router.get('/myorders/:id',(req,res,next)=>{
             res.render('orders/order-details',{theOrder: orderFromDB})
         })
         .catch(err=>next(err))
+    } else {
+        res.redirect('/')
     }
 })
-router.post('/submitReview',(req,res,next)=>{
-    const {rating, subjectLine, reviewDetails} = req.body;
-    
+////////SUBMIT A REVIEW//////////////
+//LOGGED IN and HAVE AT LEAST AN ORDER
+router.post('/myorders/:id/submitReview',(req,res,next)=>{
+    if (req.session.currentUser){
+        const {star, subjectLine, reviewDetails} = req.body;
+        Review.create({
+            orderId: req.params.id,
+            subjectLine,
+            rating: star,
+            reviewDetails
+        })
+        .then(review=>{
+            console.log('review newly created', review)
+            Order.findById(req.params.id)
+            .populate('productId')
+            .then(order=>{
+                res.render('orders/order-details',{theReview: review, theOrder:order})
+            })
+            .catch(err=>next(err))
+        })
+        .catch(err=>next(err))
+    } else {
+        res.redirect('/')
+    }
 })
+/////////DELETE A REVIEW////////////////
+router.get('/:id/deleteReview',(req,res,next)=>{
+    Review.findById(req.params.id)
+    .populate('orderId')
+    .then(review=>{
+        Review.findByIdAndRemove(review._id)
+        .then(()=>{
+            res.redirect(`/myorders/${review.orderId._id}`)
+        })
+        .catch(err=>next(err))
+    })
+    .catch(err=>next(err))
+})
+
 
 module.exports = router;

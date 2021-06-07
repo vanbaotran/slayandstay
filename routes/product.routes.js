@@ -7,23 +7,20 @@ const { findOneAndUpdate } = require('../models/Product.model');
 /////////////////////////////////////////////////////////
 /////////////////////PRODUCT-LIST///////////////////////
 /////////////////////////////////////////////////////////
+//PUBLIC - ROLE ADMIN TO BE DEFINED
 router.get('/',(req,res,next)=>{ 
-    // if(req.session.currentUser){
-    //     if(req.session.currentUser.email===process.env.ADMIN){
-    //        req.session.role = 'Admin'
-    //     }
-        Product.find()
-        .then(allProducts=>{
-        res.render('products/products-list',{allProducts:allProducts})
-        })
-        .catch(err=>next(err))
-        // }
+    Product.find()
+    .then(allProducts=>{
+    res.render('products/products-list',{allProducts:allProducts})
+    })
+    .catch(err=>next(err))
+
 })
 
 /////////////////////////////////////////////////////////
 ////////////////////UPLOAD AN ITEM///////////////////////
 /////////////////////////////////////////////////////////
-//only Admin can upload an item
+//ROLE ADMIN TO BE DEFINED
 router.get('/create',(req,res,next)=>{
     if (req.session.role = 'ADMIN'){
         res.render('products/product-create')
@@ -55,6 +52,7 @@ router.post('/create',fileUploader.fields([{name:'pictureURL',maxCount:4}]),(req
 /////////////////////////////////////////////////////////
 /////////////////////EDIT PRODUCT-DETAILS////////////////
 /////////////////////////////////////////////////////////
+//ROLE ADMIN TO BE DEFINED
 router.get('/:id/edit',(req,res,next)=>{
     if(req.session.currentUser.email=process.env.ADMIN){
         Product.findOne({_id:req.params.id})
@@ -99,6 +97,7 @@ router.post('/:id/edit',fileUploader.fields([{name: 'pictureURL0', maxCount: 1},
 /////////////////////////////////////////////////////////
 ////////////////////DELETE A PRODUCT///////////////////////
 ////////////////ONLY VISIBLE TO ADMIN //////////////////
+//ROLE ADMIN TO BE DEFINED
 router.get('/:id/delete',(req,res,next)=>{
     Product.findByIdAndRemove(req.params.id)
     .then(()=>res.redirect('/products'))
@@ -107,7 +106,7 @@ router.get('/:id/delete',(req,res,next)=>{
 /////////////////////////////////////////////////////////
 /////////////////////PRODUCT-DETAILS///////////////////////
 /////////////////////////////////////////////////////////
-
+//PUBLIC
 router.get('/:id',(req,res,next)=>{
     const id=req.params.id;
     Product.findOne({_id: id})
