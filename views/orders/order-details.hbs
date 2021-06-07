@@ -1,5 +1,5 @@
-<a href='/' id='h3-inactive'>Home ></a><a href='/' id='h3-inactive'>My orders ></a><a href='/userprofile' id='h3-active'> Orders details</a>
-<h4>Order number: {{theOrder}}</h4>
+<a href='/' id='h3-inactive'>Home ></a><a href='/myorders' id='h3-inactive'>My orders ></a><a href='/myorders/{{theOrder._id}}' id='h3-active'> Orders details</a>
+<h4>Order number: {{theOrder._id}}</h4>
 {{#each theOrder.productId}}
 <div class='product-line'>
     <img src='{{this.pictureURL.[0]}}'>
@@ -10,3 +10,21 @@
 {{/each}}
 <h4>Total: {{theOrder.total}}</h4>
 </div>
+<form action='/submitReview' method="POST">
+    <label>
+        Subject Line:
+        <input type="text" name='subjectLine'>
+    </label>
+        <div class='review-content'>
+        <ul class='rating'>
+            <li class='star-active'><img src='/images/star.png'></li>
+            <li class='star-active'><img src='/images/star.png'></li>
+              <li class='star-active'><img src='/images/star.png'></li>
+                <li class='star-active'><img src='/images/star.png'></li>
+            <li class='star-unactive'><img src='/images/star.png'></li>
+        </ul> 
+     <label>
+        <input type="text" name='reviewDetails'>
+    </label>
+    <button>Submit review</button>
+</form>

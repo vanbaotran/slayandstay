@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require('../models/User.model')
 const Product = require('../models/Product.model')
 const Order = require('../models/Order.model')
-
+const Review = require('../models/Review.model')
 ///////ADD TO BAG//////////
 router.get('/:id/addtobag',(req,res,next)=>{
     console.log(req.params.id)
@@ -60,7 +60,7 @@ router.get('/checkout',(req,res,next)=>{
                 })
                 .then(order=>{
                     console.log('order just created',order)
-                    res.redirect('/orderdetails');
+                    res.redirect('/orderconfirmation');
                 })
                 .catch(err=>console.log('error when creating new order',err))
             })
@@ -81,7 +81,7 @@ router.get('/shoppingcart',(req,res)=>{
     })
     .catch(err=>console.log('error when retrieving Product info',err))
 })
-router.get('/orderdetails',(req,res,next)=>{
+router.get('/orderconfirmation',(req,res,next)=>{
     Order.findOne({userId:req.session.currentUser}).sort({createdAt:-1}) //tri en recuperant la derniere commande
     .populate('productId')
     .then(currentOrder=>{
@@ -100,6 +100,21 @@ router.get('/myorders',(req,res,next)=>{
         })
         .catch(err=>next(err))
     }
+})
+router.get('/myorders/:id',(req,res,next)=>{
+    if (req.session.currentUser){
+        const orderId = req.params.id;
+        Order.findById(orderId)
+        .populate('productId')
+        .then(orderFromDB=>{
+            res.render('orders/order-details',{theOrder: orderFromDB})
+        })
+        .catch(err=>next(err))
+    }
+})
+router.post('/submitReview',(req,res,next)=>{
+    const {rating, subjectLine, reviewDetails} = req.body;
+    
 })
 
 module.exports = router;
