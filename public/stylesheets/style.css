@@ -12,7 +12,7 @@ li {
 a {
   text-decoration: none; }
 
-#topLine {
+.topLine {
   display: flex; }
 
 #h3-inactive {
@@ -31,7 +31,8 @@ a {
 ##    ## ##     ##    ###            ########  ##     ## ##     ## 
 */
 #top-nav-bar {
-  width: 100%; }
+  display: flex;
+  justify-content: space-between; }
 
 #nav-bar {
   padding: 5%;
@@ -108,13 +109,17 @@ a {
     flex-wrap: wrap;
     margin: 0; } }
 
-#products-list ul li {
-  margin: 10%;
-  width: 30%;
-  height: 30%; }
-
 .product-img {
-  margin: 10%; }
+  width: 40%; }
+
+#heart {
+  width: 5%;
+  background-color: red;
+  background-image: url(/images/icon/heart.png); }
+
+#heart:hover {
+  background-color: pink;
+  background-image: url(/images/icon/heart-filled.png); }
 
 /*
 
@@ -165,5 +170,32 @@ a {
   position: absolute;
   left: 0;
   color: #FFD700; }
+
+/*
+########  ########   #######  ########  ##     ##  ######  ########    ########  ######## ########    ###    #### ##        ######  
+##     ## ##     ## ##     ## ##     ## ##     ## ##    ##    ##       ##     ## ##          ##      ## ##    ##  ##       ##    ## 
+##     ## ##     ## ##     ## ##     ## ##     ## ##          ##       ##     ## ##          ##     ##   ##   ##  ##       ##       
+########  ########  ##     ## ##     ## ##     ## ##          ##       ##     ## ######      ##    ##     ##  ##  ##        ######  
+##        ##   ##   ##     ## ##     ## ##     ## ##          ##       ##     ## ##          ##    #########  ##  ##             ## 
+##        ##    ##  ##     ## ##     ## ##     ## ##    ##    ##       ##     ## ##          ##    ##     ##  ##  ##       ##    ## 
+##        ##     ##  #######  ########   #######   ######     ##       ########  ########    ##    ##     ## #### ########  ######  
+*/
+.productDetails .image {
+  margin: 0 auto;
+  display: flex; }
+
+.smallDisplay {
+  margin-right: 0;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column; }
+
+.inactive {
+  margin-left: 2%;
+  margin-bottom: 1%;
+  width: 23%; }
+
+.image .active {
+  width: 40%; }
 
 /*# sourceMappingURL=style.css.map */

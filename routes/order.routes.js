@@ -152,16 +152,20 @@ router.post('/myorders/:id/submitReview',(req,res,next)=>{
 })
 /////////DELETE A REVIEW////////////////
 router.get('/:id/deleteReview',(req,res,next)=>{
-    Review.findById(req.params.id)
-    .populate('orderId')
-    .then(review=>{
-        Review.findByIdAndRemove(review._id)
-        .then(()=>{
-            res.redirect(`/myorders/${review.orderId._id}`)
+    if (req.session.currentUser){
+        Review.findById(req.params.id)
+        .populate('orderId')
+        .then(review=>{
+            Review.findByIdAndRemove(review._id)
+            .then(()=>{
+                res.redirect(`/myorders/${review.orderId._id}`)
+            })
+            .catch(err=>next(err))
         })
         .catch(err=>next(err))
-    })
-    .catch(err=>next(err))
+    } else {
+        res.redirect('/')
+    }
 })
 
 

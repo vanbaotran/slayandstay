@@ -8,6 +8,14 @@ const { findOneAndUpdate } = require('../models/Product.model');
 /////////////////////PRODUCT-LIST///////////////////////
 /////////////////////////////////////////////////////////
 //PUBLIC - ROLE ADMIN TO BE DEFINED
+//////CHECK ADMIN////////
+// function checkAdmin(req,res,next){
+//     if(req.session.currentUser.email===process.env.ADMIN){
+//       next()
+//     } else {
+//       res.redirect('/products')
+//     }
+//   }
 router.get('/',(req,res,next)=>{ 
     Product.find()
     .then(allProducts=>{
@@ -21,12 +29,11 @@ router.get('/',(req,res,next)=>{
 ////////////////////UPLOAD AN ITEM///////////////////////
 /////////////////////////////////////////////////////////
 //ROLE ADMIN TO BE DEFINED
-router.get('/create',(req,res,next)=>{
-    if (req.session.role = 'ADMIN'){
-        res.render('products/product-create')
-    }
-})
-router.post('/create',fileUploader.fields([{name:'pictureURL',maxCount:4}]),(req,res,next)=>{
+router.get('/create', (req,res,next)=>{
+    console.log('ROLE',req.session.currentUser)
+    res.render('products/product-create')})
+
+router.post('/create',fileUploader.fields([{name:'pictureURL',maxCount:4}]),checkAdmin,(req,res,next)=>{
     const {productName, description, price, size,measurements}=req.body;
 
     if (!productName) {
