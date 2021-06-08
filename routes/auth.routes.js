@@ -15,10 +15,10 @@ router.get('/signup', (req, res) => res.render('auth/signup'));
 
 
 // .post() route ==> to process form data
-router.post('/signup', fileUploader.single('pictureURL'), (req, res, next) => {
-  const { firstName, lastName, email, password, wishlist, address, postalCode, country } = req.body;
+router.post('/signup', fileUploader.single('pictureURL'),(req, res, next) => {
+  const { firstName, lastName, email, password } = req.body;
 
-  if (!firstName || !lastName || !email || !password) {
+  if (!firstName || !lastName || !email |!password) {
     res.render('auth/signup', { errorMessage: 'Make sure to fill out all the fields!' });
     return;
   }
@@ -44,12 +44,8 @@ User.findOne({email})
         firstName,
         lastName,
         email,
-        passwordHash: hashedPassword,
-        wishlist,
-        address, 
-        postalCode,
-        country,
-        pictureURL:req.file.path
+        pictureURL:req.file.path,
+        passwordHash: hashedPassword
       })
       .then(user => {
         req.session.currentUser = user;
@@ -71,7 +67,7 @@ module.exports = router;
 
 //.get() route ==> to display log in form to users
 
-router.get('/login', (req, res) => res.render('auth/login'));
+router.get('/login', (req, res) => res.render('auth/login',{errorMessage: req.flash('error')}));
 
 //.post() form data is sent
 router.post('/login', (req, res, next) => {
@@ -93,6 +89,9 @@ router.post('/login', (req, res, next) => {
       } else if (bcrypt.compareSync(password, user.passwordHash)) {
         req.session.currentUser = user;
         res.render('users/user-profile',{user})
+        if(req.session.order){
+          res.redirect('/checkout')
+        }
       } else {
         res.render('auth/login', { errorMessage: 'Incorrect password.' });
       }
@@ -103,10 +102,36 @@ router.post('/login', (req, res, next) => {
 router.get('/userprofile',(req,res)=>{
   res.render('users/user-profile',{user:req.session.currentUser})
 })
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, theUser, failureDetails) => {
+    if (err) {
+      // Something went wrong authenticating user
+      return next(err);
+    }
+ 
+    if (!theUser) {
+      // Unauthorized, `failureDetails` contains the error messages from our logic in "LocalStrategy" {message: '…'}.
+      res.render('auth/login', { errorMessage: 'Wrong password or email ' });
+      return;
+    }
+ 
+    // save user in session: req.user
+    req.login(theUser, err => {
+      if (err) {
+        // Session save went bad
+        return next(err);
+      }
+ 
+      // All good, we are now logged in and `req.user` is now set
+      res.redirect('/');
+    });
+  })(req, res, next);
+});
 
 // LOGOUTTTTTT
 router.post('/logout', (req, res) => {
   req.session.destroy();
+  // req.logout();
   res.redirect('/');
 });
 
@@ -117,8 +142,6 @@ router.post('/logout', (req, res) => {
 
 
 
-
-///WISHLIST ROUTE///
 
 router.get('/wishlist', (req, res) => res.render('users/wishlist'));
 

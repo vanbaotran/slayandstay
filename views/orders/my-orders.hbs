@@ -1,0 +1,9 @@
+<h3 id='h3-inactive'>Home></h3><h3 id='h3-active'>My orders></h3>
+{{#each myOrders}}
+    <h4>Order number: {{_id}}</h4>
+    <div class='product-line'></div>
+        <img src='{{productId.pictureURL.[0]}}'>    
+    </div>
+    {{/each}}
+  <h4>Total: {{total}}</h4>
+{{/each}}

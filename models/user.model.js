@@ -23,6 +23,7 @@ const userSchema = new Schema(
         lowercase: true,
         trim: true
       },
+      username: String,
       passwordHash: {
         type: String,
         required: [true, 'Password is required.']
@@ -36,11 +37,9 @@ const userSchema = new Schema(
         type: Number,
       },
       country: {
-        type: String,
+        type: String, 
       },
-      pictureURL: {
-        type: String,
-      }
+      pictureURL: String
     },
     {
       timestamps: true

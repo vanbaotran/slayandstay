@@ -14,6 +14,11 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
+
+// const bcrypt = require('bcryptjs');
+// const passport = require('passport');
+// const LocalStrategy = require('passport-local').Strategy;
+const flash = require('connect-flash')
 const app = express();
 
 require('./configs/session.config')(app);
@@ -27,20 +32,26 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+app.use(flash());
 
 app.use(
   session({
       secret: process.env.SESS_SECRET,
       resave: false,
       saveUninitialized: true,
-      cookie: { maxAge: 3600000 }, // 60 * 60* 1000 ms === 1 min
+      cookie: { maxAge: 3600000*24*14 },
       store: new MongoStore({
           mongooseConnection: mongoose.connection,
-          ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
       })
   })
 );
 
+ 
+// ...
+ 
+
+
+// ...
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -61,7 +72,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
-
 
 
 // default value for title local
