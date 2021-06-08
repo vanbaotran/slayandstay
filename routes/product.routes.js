@@ -67,7 +67,6 @@ router.get('/:id/favorite', (req,res,next) => {
         res.redirect('/login')
     } else {//if LOGGED IN
         //setting up req.session.favorites
-        // res.redirect(`/products/${req.params.id}`)
         const productId = req.params.id;
         if(!req.session.favorites){
             req.session.favorites=[productId]
@@ -79,31 +78,27 @@ router.get('/:id/favorite', (req,res,next) => {
         } else if (req.session.favorites.includes(req.params.id)){
             let index = req.session.favorites.indexOf(req.params.id)
             req.session.favorites.splice(index,1)
-        }
-                Product.findById(productId)
-                .then(product=>{   
-                    User.findOneAndUpdate(req.session.currentUser._id,
-                        {wishlist:req.session.favorites}
-                        ,{new:true}
-                        )
-                    .then(user=>{
-                        console.log('REQ.SESSION.FAVORITES',req.session.favorites)
-                        console.log('WISHLIST',user)
-                        if (user.wishlist.includes(req.params.id)){
-                            favorite = true;
-                            res.render('products/product-details',{favorite, theProduct:product })
-                        } else {
-                            res.render('products/product-details',{theProduct:product })
-                        }
-                        
-                    })
-                    .catch(err=>next(err))
+    }
+            Product.findById(productId)
+            .then(product=>{   
+                User.findOneAndUpdate(req.session.currentUser._id,
+                    {wishlist:req.session.favorites}
+                    ,{new:true}
+                    )
+                .then(user=>{
+                    console.log('USER WISHLIST',user)
+                    if (user.wishlist.includes(req.params.id)){
+                        favorite = true;
+                        res.render('products/product-details',{favorite, theProduct:product })
+                    } else {
+                        res.render('products/product-details',{theProduct:product })
+                    }
+                    
                 })
                 .catch(err=>next(err))
+            })
+            .catch(err=>next(err))
     }
-    
-        // User.findOneAndUpdate(req.session.currentUser._id,
-        //     {wishlist:req.session.favorites},{new:true}
   });
 /////////////////////////////////////////////////////////
 /////////////////////EDIT PRODUCT-DETAILS////////////////

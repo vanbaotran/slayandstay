@@ -31,6 +31,5 @@ router.get('/terms-and-conditions', (req, res) => res.render('terms-and-conditio
 router.get('/contact-us', (req, res) => res.render('contact-us'));
 
 
-
 //
 module.exports = router;

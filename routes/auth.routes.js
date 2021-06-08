@@ -151,6 +151,20 @@ router.post('/logout', (req, res) => {
 /////////END AUTHENTICATION////////////////
 ///WISHLIST ROUTE///
 ////LOGGED IN
+router.get('/wishlist',(req,res,next)=>{
+  console.log('USER:',req.session.currentUser)
+  if (req.session.currentUser){
+    User.findById(req.session.currentUser)
+    .populate('wishlist')
+    .then(user=>{
+      const wishlist = user.wishlist
+      console.log('USER FOUND WITH WISHLIST',user)
+      res.render('users/wishlist',{theWishlist:wishlist})
+    })
+    .catch(err=>next(err))
+  }
+  // res.redirect('/login')
+})
 
 
 
