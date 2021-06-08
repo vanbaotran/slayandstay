@@ -3,6 +3,8 @@ const router = express.Router();
 const Product = require('../models/Product.model')
 const fileUploader = require('../configs/cloudinary.config');
 const { findOneAndUpdate } = require('../models/Product.model');
+const User = require('../models/User.model');
+const { request } = require('http');
 
 /////////////////////////////////////////////////////////
 /////////////////////PRODUCT-LIST///////////////////////
@@ -33,7 +35,7 @@ router.get('/create', (req,res,next)=>{
     console.log('ROLE',req.session.currentUser)
     res.render('products/product-create')})
 
-router.post('/create',fileUploader.fields([{name:'pictureURL',maxCount:4}]),checkAdmin,(req,res,next)=>{
+router.post('/create',fileUploader.fields([{name:'pictureURL',maxCount:4}]),(req,res,next)=>{
     const {productName, description, price, size,measurements}=req.body;
 
     if (!productName) {
@@ -56,6 +58,53 @@ router.post('/create',fileUploader.fields([{name:'pictureURL',maxCount:4}]),chec
     })
     .catch(err=>next(err))
 })
+/////////END AUTHENTICATION////////////////
+///WISHLIST ROUTE///
+////LOGGED IN
+router.get('/:id/favorite', (req,res,next) => {
+    //if not logged in, redirect to /login
+    if (!req.session.currentUser){
+        res.redirect('/login')
+    } else {//if LOGGED IN
+        //setting up req.session.favorites
+        // res.redirect(`/products/${req.params.id}`)
+        const productId = req.params.id;
+        if(!req.session.favorites){
+            req.session.favorites=[productId]
+        }
+        //if logged in and the product wasn't in the wishlist => add to wishlist
+        else if (req.session.favorites.includes(req.params.id)===false){
+            req.session.favorites.push(productId)
+            //if logged in and the product was already in the wishlist =>remove from wishlist
+        } else if (req.session.favorites.includes(req.params.id)){
+            let index = req.session.favorites.indexOf(req.params.id)
+            req.session.favorites.splice(index,1)
+        }
+                Product.findById(productId)
+                .then(product=>{   
+                    User.findOneAndUpdate(req.session.currentUser._id,
+                        {wishlist:req.session.favorites}
+                        ,{new:true}
+                        )
+                    .then(user=>{
+                        console.log('REQ.SESSION.FAVORITES',req.session.favorites)
+                        console.log('WISHLIST',user)
+                        if (user.wishlist.includes(req.params.id)){
+                            favorite = true;
+                            res.render('products/product-details',{favorite, theProduct:product })
+                        } else {
+                            res.render('products/product-details',{theProduct:product })
+                        }
+                        
+                    })
+                    .catch(err=>next(err))
+                })
+                .catch(err=>next(err))
+    }
+    
+        // User.findOneAndUpdate(req.session.currentUser._id,
+        //     {wishlist:req.session.favorites},{new:true}
+  });
 /////////////////////////////////////////////////////////
 /////////////////////EDIT PRODUCT-DETAILS////////////////
 /////////////////////////////////////////////////////////
@@ -121,5 +170,8 @@ router.get('/:id',(req,res,next)=>{
         res.render('products/product-details',{theProduct:productFromDB})
     })
 })
+
+
+
 
 module.exports = router;

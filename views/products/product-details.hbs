@@ -14,9 +14,20 @@
 
 
 <h2 id='h2-active'>{{theProduct.productName}}</h2>
-<div class='wishlist'>
-    <img class='heart' src='/images/icon/heart.png'>
-</div>
+{{#if favorite}}
+<a href='/products/{{theProduct._id}}/favorite'>
+    <div class='wishlist'>
+        <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+    </div>
+</a>
+{{else}}
+<a href='/products/{{theProduct._id}}/favorite'>
+    <div class='wishlist'>
+        <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+    </div>
+</a>
+{{/if}}
+
 
 <p>{{theProduct.price}}€</p>
 <p>Size {{theProduct.size}}</p>
