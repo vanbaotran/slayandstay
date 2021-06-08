@@ -2,15 +2,24 @@
 <ul>
 
 {{#each allProducts}}
-<li>
-<a href='/products/{{_id}}'>
-    <img class='product-img' src='{{pictureURL.[0]}}'>
-    <h3>{{productName}}</h3>
-</a>
-</li>
+<div class='eachProduct'>
+    <a href='/products/{{_id}}'>
+        <img class='product-img' src='{{pictureURL.[0]}}'>
+        <h3>{{productName}}</h3>
+        <p>{{price}}€</p>
+        
+    </a>
+    <a href='/products/{{_id}}/favorite'
+    <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+</div>
+
+
+<a href='/{{_id}}/buynow'><button>BUY NOW</button></a>
+<a href='/{{_id}}/addtobag'><button>ADD TO BAG</button></a>
 {{/each}}
 </ul>
-<button><a href='/products/create'>
-Upload an item</a></button>
-
+{{!-- {{#if isAdmin}} --}}
+<button><a href='/products/create'>Upload an item</a></button>
+{{!-- {{/if}} --}}
 </section>
+

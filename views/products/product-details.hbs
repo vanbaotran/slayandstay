@@ -1,15 +1,34 @@
-<h3 id='h3-inactive'>Shop>Products></h3><h3 id='h2-active'>{{theProduct.productName}}</h3>
+<section class='productDetails'>
 
-<img id='image-active' src='{{theProduct.pictureURL.[0]}}'>
-<img id='image-inactive' src='{{theProduct.pictureURL.[1]}}'>
-<img id='image-inactive' src='{{theProduct.pictureURL.[2]}}'>
-<img id='image-inactive' src='{{theProduct.pictureURL.[3]}}'>
+<div class='topLine'><h3 id='h3-inactive'>Shop > <h3 id='h3-inactive'> Products ></h3><h3 id='h3-active'> {{theProduct.productName}}</h3></div>
+<div class = 'image'>
+    <img class='active' src='{{theProduct.pictureURL.[0]}}'>
+    <div class='smallDisplay'>
+        <img class='inactive' src='{{theProduct.pictureURL.[1]}}'>
+        <img class='inactive' src='{{theProduct.pictureURL.[2]}}'>
+        <img class='inactive' src='{{theProduct.pictureURL.[3]}}'>
+    </div>
+   
+</div>
+
 
 
 <h2 id='h2-active'>{{theProduct.productName}}</h2>
-<div id='heart'>
-{{!-- switch to id='heart-filled' when clicked --}}
-</div>
+{{#if favorite}}
+<a href='/products/{{theProduct._id}}/favorite'>
+    <div class='wishlist'>
+        <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+    </div>
+</a>
+{{else}}
+<a href='/products/{{theProduct._id}}/favorite'>
+    <div class='wishlist'>
+        <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+    </div>
+</a>
+{{/if}}
+
+
 <p>{{theProduct.price}}€</p>
 <p>Size {{theProduct.size}}</p>
 <a href='/{{theProduct._id}}/buynow'>
@@ -18,9 +37,13 @@
 <a href='/{{theProduct._id}}/addtobag'><button>ADD TO BAG</button></a>
 <p>Description: {{theProduct.description}}</p>
 <p>Measurements: {{theProduct.measurements}}</p>
+{{#if admin}}
 <button><a href='/products/{{theProduct._id}}/edit'>
     Edit this post  
 </a></button>
 <button><a href='/products/{{theProduct._id}}/delete'>
     Delete this post  
 </a></button>
+{{/if}}
+
+</section>

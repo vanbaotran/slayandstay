@@ -39,7 +39,9 @@ const userSchema = new Schema(
       country: {
         type: String, 
       },
-      pictureURL: String
+      pictureURL: {
+        type: String,
+        }
     },
     {
       timestamps: true

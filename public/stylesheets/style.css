@@ -12,6 +12,15 @@ li {
 a {
   text-decoration: none; }
 
+.topLine {
+  display: flex; }
+
+#h3-inactive {
+  color: gray; }
+
+#h3-active {
+  color: black; }
+
 /*
 ##    ##    ###    ##     ##         ########     ###    ########  
 ###   ##   ## ##   ##     ##         ##     ##   ## ##   ##     ## 
@@ -22,7 +31,8 @@ a {
 ##    ## ##     ##    ###            ########  ##     ## ##     ## 
 */
 #top-nav-bar {
-  width: 100%; }
+  display: flex;
+  justify-content: space-between; }
 
 #nav-bar {
   padding: 5%;
@@ -70,6 +80,21 @@ a {
   width: 40%; }
 
 /*
+##     ##  ######  ######## ########     ########  ########   #######  ######## #### ##       ######## 
+##     ## ##    ## ##       ##     ##    ##     ## ##     ## ##     ## ##        ##  ##       ##       
+##     ## ##       ##       ##     ##    ##     ## ##     ## ##     ## ##        ##  ##       ##       
+##     ##  ######  ######   ########     ########  ########  ##     ## ######    ##  ##       ######   
+##     ##       ## ##       ##   ##      ##        ##   ##   ##     ## ##        ##  ##       ##       
+##     ## ##    ## ##       ##    ##     ##        ##    ##  ##     ## ##        ##  ##       ##       
+ #######   ######  ######## ##     ##    ##        ##     ##  #######  ##       #### ######## ######## 
+*/
+#personal-info {
+  display: flex; }
+
+#personal-info h3 {
+  margin: 5%; }
+
+/*
 ########  ########   #######  ########  ##     ##  ######  ########  ######     ########     ###     ######   ######## 
 ##     ## ##     ## ##     ## ##     ## ##     ## ##    ##    ##    ##    ##    ##     ##   ## ##   ##    ##  ##       
 ##     ## ##     ## ##     ## ##     ## ##     ## ##          ##    ##          ##     ##  ##   ##  ##        ##       
@@ -84,12 +109,93 @@ a {
     flex-wrap: wrap;
     margin: 0; } }
 
-#products-list ul li {
-  margin: 10%;
-  width: 30%;
-  height: 30%; }
-
 .product-img {
-  margin: 10%; }
+  width: 40%; }
+
+#heart {
+  width: 5%;
+  background-color: red;
+  background-image: url(/images/icon/heart.png); }
+
+#heart:hover {
+  background-color: pink;
+  background-image: url(/images/icon/heart-filled.png); }
+
+/*
+
+#######  ########  ########  ######## ########     ########  ######## ########    ###    #### ##        ######  
+##     ## ##     ## ##     ## ##       ##     ##    ##     ## ##          ##      ## ##    ##  ##       ##    ## 
+##     ## ##     ## ##     ## ##       ##     ##    ##     ## ##          ##     ##   ##   ##  ##       ##       
+##     ## ########  ##     ## ######   ########     ##     ## ######      ##    ##     ##  ##  ##        ######  
+##     ## ##   ##   ##     ## ##       ##   ##      ##     ## ##          ##    #########  ##  ##             ## 
+##     ## ##    ##  ##     ## ##       ##    ##     ##     ## ##          ##    ##     ##  ##  ##       ##    ## 
+ #######  ##     ## ########  ######## ##     ##    ########  ########    ##    ##     ## #### ########  ######  */
+.txt-center {
+  text-align: center; }
+
+.hide {
+  display: none; }
+
+.clear {
+  float: none;
+  clear: both; }
+
+.rating {
+  width: 90px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  position: relative; }
+
+.rating > label {
+  float: right;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 1.1em;
+  cursor: pointer;
+  color: #000; }
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+  color: transparent; }
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: #FFD700; }
+
+/*
+########  ########   #######  ########  ##     ##  ######  ########    ########  ######## ########    ###    #### ##        ######  
+##     ## ##     ## ##     ## ##     ## ##     ## ##    ##    ##       ##     ## ##          ##      ## ##    ##  ##       ##    ## 
+##     ## ##     ## ##     ## ##     ## ##     ## ##          ##       ##     ## ##          ##     ##   ##   ##  ##       ##       
+########  ########  ##     ## ##     ## ##     ## ##          ##       ##     ## ######      ##    ##     ##  ##  ##        ######  
+##        ##   ##   ##     ## ##     ## ##     ## ##          ##       ##     ## ##          ##    #########  ##  ##             ## 
+##        ##    ##  ##     ## ##     ## ##     ## ##    ##    ##       ##     ## ##          ##    ##     ##  ##  ##       ##    ## 
+##        ##     ##  #######  ########   #######   ######     ##       ########  ########    ##    ##     ## #### ########  ######  
+*/
+.productDetails .image {
+  margin: 0 auto;
+  display: flex; }
+
+.smallDisplay {
+  margin-right: 0;
+  display: flex;
+  align-items: baseline;
+  flex-direction: column; }
+
+.inactive {
+  margin-left: 2%;
+  margin-bottom: 1%;
+  width: 23%; }
+
+.image .active {
+  width: 40%; }
 
 /*# sourceMappingURL=style.css.map */

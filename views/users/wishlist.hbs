@@ -1,0 +1,18 @@
+<a href='/' id='h3-inactive'>Home ></a><a href='/userprofile' id='h3-inactive'>My profile ></a><a href='/wishlist' id='h3-active'> Wishlist</a>
+{{#if theWishlist}}
+  {{#each theWishlist}}
+    <div class='product-line'>
+        <img src='{{this.pictureURL.[0]}}'>
+        <h4>{{this.productName}}</h4>
+        <p>{{this.price}}€<br>
+        Size:{{this.size}}</p>
+        <a href='/products/{{this._id}}/favorite'>
+            <div class='wishlist'>
+                <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+            </div>
+        </a>
+    </div>
+  {{/each}}
+{{else}}
+<div>Your wishlist is empty!</div>
+{{/if}}

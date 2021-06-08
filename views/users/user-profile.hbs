@@ -1,19 +1,31 @@
 
 
 {{!-- STILL NEED TO DO HTML--}}
+<a href='/' id='h3-inactive'>Home ></a><a href='/userprofile' id='h3-active'> My profile</a>
+<section id='userProfile'>
 
 {{#if user}}
-  <h1>Welcome, {{ user.firstName }}!</h1>
-  <h2>Personal Info</h2>
-<p> make sure to insert user photo </p>
 
-<li> <a href="/myorders">My Orders</a></li>
-<li> <a href="/wishlist">Wishlist</a></li>
-<li><span class="logoutlink">
-   <a title="Log Out" class="logoutlink-logout" href="?action=/logout">Log Out</a>
-</span></li>
+<h2>Personal Info</h2>
+<section id='personal-info'>
+  <img src='{{user.pictureURL}}'>
+  <div id='text-info'>
+    <h3>Name: {{user.firstName}} {{user.lastName}}</h3>
+    <h3>E-mail: {{user.email}}</h3>
+    <h3>Password: ********** </h3>
+  </div>
+  <a href='/userprofile/edit'><img src='/images/icon/edit.png'></a>
+  </section>
+</div>
+<ul>
+  <li><a href="/myorders">My Orders</a></li>
+  <li> <a href="/wishlist">Wishlist</a></li>
+  <li><a href='/logout'>Log Out</a></li>
+</ul>
 
 
 {{else}}
-  <p>Still no logged in user, sorry!</p>
+  <p>Please <a href='/login'>Log in</a> or <a href='/signup'>Sign up</a> if you have not been part of the family yet!</p>
 {{/if}}
+
+</section>

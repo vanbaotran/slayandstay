@@ -1,12 +1,51 @@
-<h3 id='h3-inactive'>Home></h3><h3 id='h3-inactive'>My orders></h3><h3 id='h3-active'>Order details</h3>
-<h4>Order number: {{theOrder}}</h4>
+<a href='/' id='h3-inactive'>Home ></a><a href='/myorders' id='h3-inactive'>My orders ></a><a href='/myorders/{{theOrder._id}}' id='h3-active'> Order details</a>
+<h4>Order number: {{theOrder._id}}</h4>
 {{#each theOrder.productId}}
 <div class='product-line'>
     <img src='{{this.pictureURL.[0]}}'>
     <h4>{{this.productName}}</h4>
-    <p>{{this.price}}<br>
+    <p>{{this.price}}€<br>
     {{this.size}}</p>
 </div>
 {{/each}}
-<h4>Total: {{theOrder.total}}</h4>
+<h4>Total: {{theOrder.total}}€</h4>
 </div>
+{{#if theReview}}
+<h4>Your review</h4>
+<p>Subject:{{theReview.subjectLine}}</p>
+<p>Rating: {{theReview.rating}}/5 ☆</p>
+
+<p>{{theReview.reviewDetails}}</p>
+<a href='/{{theReview._id}}/deleteReview'>Delete this review</a>
+{{/if}}
+
+      
+<form name='reviewForm' action='/myorders/{{theOrder._id}}/submitReview' method="POST">
+    <label>
+        Subject:
+        <input type="text" name='subjectLine'>
+    </label>
+        <div class='review-content'>
+        <div class="txt-center">
+            <form>
+                <div class="rating">
+                    <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                    <label for="star5">☆</label>
+                    <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                    <label for="star4">☆</label>
+                    <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                    <label for="star3">☆</label>
+                    <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                    <label for="star2">☆</label>
+                    <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                    <label for="star1">☆</label>
+                    <div class="clear"></div>
+                </div>
+             </form>
+        </div>    
+        
+     <label>
+        <input type="text" name='reviewDetails'>
+    </label>
+    <button>Submit review</button>
+</form>
