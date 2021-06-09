@@ -10,23 +10,23 @@
     </div>
    
 </div>
+<div class='productInfo'>
+    <h2 id='h2-active'>{{theProduct.productName}}</h2>
+    {{#if favorite}}
+    <a href='/products/{{theProduct._id}}/favorite'>
+        <div class='wishlist'>
+            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+        </div>
+    </a>
+    {{else}}
+    <a href='/products/{{theProduct._id}}/favorite'>
+        <div class='wishlist'>
+            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+        </div>
+    </a>
+    {{/if}}
 
-
-
-<h2 id='h2-active'>{{theProduct.productName}}</h2>
-{{#if favorite}}
-<a href='/products/{{theProduct._id}}/favorite'>
-    <div class='wishlist'>
-        <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
-    </div>
-</a>
-{{else}}
-<a href='/products/{{theProduct._id}}/favorite'>
-    <div class='wishlist'>
-        <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
-    </div>
-</a>
-{{/if}}
+</div>
 
 
 <p>{{theProduct.price}}€</p>
@@ -37,7 +37,7 @@
 <a href='/{{theProduct._id}}/addtobag'><button>ADD TO BAG</button></a>
 <p>Description: {{theProduct.description}}</p>
 <p>Measurements: {{theProduct.measurements}}</p>
-{{#if admin}}
+{{#if isAdmin}}
 <button><a href='/products/{{theProduct._id}}/edit'>
     Edit this post  
 </a></button>

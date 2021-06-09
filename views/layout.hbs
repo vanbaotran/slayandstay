@@ -10,21 +10,41 @@
 <body>
 
 <section id='top-nav-bar'>
- <img src='/images/icon/hamburger.png'>
+<nav  role="navigation">
+   <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+      <a href="/products"><li>Shop</li></a>
+      <a href="/about"><li>About Us</li></a>
+      <a href="/contactus"><li>Contact</li></a>
+      <a href="/shipping"><li>Shipping Info</li></a>
+      <a href="/returns"><li>Returns</li></a>
+      <a href="/termsandconditions"><li>Terms & Conditions</li></a>
+      <a href="/signup"><li>Sign up</li></a>
+      <a href="/login"><li>Log in</li></a>
+      <a href="/logout"><li>Log out</li></a>
+      <a href="https://www.instagram.com/slayandstay.vintage/"><li><img src='/images/icon/instagram.png'></li></a>
+    </ul>
+   </div>
+
+</nav>
+
+
  <a href='/'>
   <img src='/images/icon/logo.png'>
  </a>
-  <img src='/images/icon/search.png'>
-    <img src='/images/icon/bag.png'>
+<div id='right-bar'>
+  <a href='/search'><img src='/images/icon/search.png'></a>
+  <a href='/shoppingcart'><img src='/images/icon/bag.png'></a> 
+</div>
+
 
 </section>
-      <nav id='auth-navBar'>
-        <a href="/signup">Signup</a> <span> | </span>
-        <a href="/login">Login</a> <span> | </span>
-        <a href="/logout">Logout</a>   
-      </nav>
   {{{body}}}
-<section id='nav-bar'>
+<section id='bottom-nav-bar'>
   <div>
     <a href='/products'><img src='/images/icon/shop.png'></a>
     <p>shop</p>
