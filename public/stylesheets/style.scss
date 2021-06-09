@@ -18,6 +18,8 @@ a {
 }
 .topLine {
   display:flex;
+  font-weight: bold;
+  font-size: 0.8em;
 }
 #h3-inactive {
   color: gray
@@ -36,18 +38,18 @@ a {
 */
 #top-nav-bar {
   background-color: white;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
+#right-bar img {
+  margin:50%;
+}
 #bottom-nav-bar {
-  position: fixed;
+  position: sticky;
   bottom: 0;
-  left: 0;
-  width: 90%;
+  left:0;
+  width: 100%;
   padding: 2% 6%;
   background-color: #F8E6DA;
   display: flex;
@@ -74,7 +76,7 @@ a {
   display: block;
   position: relative;
   top: 40%;
-  left: 45%;
+  left: 10%;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -97,9 +99,7 @@ a {
   position: absolute;
   top: -7px;
   left: -5px;
-  
   cursor: pointer;
-  
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
   
@@ -244,6 +244,7 @@ a {
   margin:0;
 }
 }
+/*common with product details page*/
 .productInfo {
   display:flex;
   align-items: center;
@@ -351,4 +352,46 @@ a {
 }
 .image .active {
   width: 75%;
+}
+#productName {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2em; 
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.productPrice, .productSize {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding:0;
+}
+.sub-productInfo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom:5%
+}
+.btn {
+  margin-bottom: 2%;
+  width:100%;
+  height: 32px;
+  border-radius: 32px;
+  border-style: none;
+  font-family: EB Garamond;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  color:#FEFCFB;
+}
+.buynow {
+  background-color: #987561;
+}
+.buynow:hover {
+  background-color: #D6C8C0;
+}
+.addtobag {
+  background-color: #7AB9C1;
+}
+.addtobag:hover {
+  background: #CAE3E6;
 }
