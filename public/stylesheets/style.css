@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 body {
+  margin: 5%;
   box-sizing: border-box;
   padding: 0;
   font: 14px "EB Garamond", Helvetica, Arial, sans-serif; }
@@ -14,17 +15,14 @@ a {
   text-decoration: none; }
 
 .topLine {
-  margin-left: 5%;
-  margin-right: 5%;
   display: flex;
   font-weight: bold;
   font-size: 0.8em; }
 
-#h3-inactive {
-  margin-right: 1%;
+.h3-inactive {
   color: gray; }
 
-#h3-active {
+.h3-active {
   color: black; }
 
 /*
@@ -158,9 +156,9 @@ a {
 #menu {
   position: absolute;
   width: 300%;
-  margin: -100% 0 0 -40%;
+  margin: -100% 0 0 -90%;
   padding: 50%;
-  padding-top: 70%;
+  padding-top: 150%;
   background: #FCF5F0;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
@@ -185,17 +183,31 @@ a {
 ##     ##  #######  ##     ## ######## ##        ##     ##  ######   ######## 
 */
 #homepage h2 {
-  text-align: center; }
+  text-align: center;
+  font-size: 1.3em; }
+
+#title {
+  font-family: 'Boska', serif;
+  margin-bottom: 0; }
 
 #homepage img {
   width: 100%;
   height: 50%; }
 
+.calltoaction {
+  color: black;
+  display: flex;
+  flex-direction: column; }
+
+.calltoaction p {
+  text-align: center; }
+
 #homepage .features {
   display: flex; }
 
 #homepage .features h3 {
-  margin: auto; }
+  margin: auto;
+  font-size: 1.1em; }
 
 #homepage .features img {
   width: 50%; }
@@ -266,25 +278,43 @@ a {
 ##        ##    ##  ##     ## ##     ## ##     ## ##    ##    ##    ##    ##    ##        ##     ## ##    ##  ##       
 ##        ##     ##  #######  ########   #######   ######     ##     ######     ##        ##     ##  ######   ######## 
 */
-@media (min-width: 900px) {
-  #products-list ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0; } }
+#products-list ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  padding-inline-start: 0;
+  margin: 0; }
 
 /*common with product details page*/
 .productInfo {
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-top: 5%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between; }
 
 .productInfo .wishlist {
   margin-left: auto; }
 
 .product-img {
-  width: 40%; }
+  width: 100%; }
+
+#products-list ul li {
+  display: inline-block;
+  width: 40%;
+  margin: 5%; }
+
+.eachProduct .heart {
+  width: 50%;
+  margin-left: auto;
+  margin-right: 0; }
+
+.eachProduct a {
+  text-decoration: none;
+  color: black; }
+
+h4 {
+  font-size: 1em; }
 
 /*
 
@@ -346,8 +376,6 @@ a {
 ##        ##     ##  #######  ########   #######   ######     ##       ########  ########    ##    ##     ## #### ########  ######  
 */
 .productDetails .image {
-  margin-left: 5%;
-  margin-right: 5%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between; }
@@ -370,24 +398,29 @@ a {
   font-style: normal;
   font-weight: bold;
   font-size: 2em;
+  margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0; }
 
 .productPrice, .productSize {
   margin-top: 0;
   margin-bottom: 0;
-  padding: 0; }
+  padding: 0;
+  font-size: 0.8em; }
 
 .sub-productInfo {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5%; }
+  margin-bottom: 5%;
+  font-weight: bold; }
+
+.productName {
+  margin: 0;
+  font-size: 1em; }
 
 .btn {
-  margin-left: 5%;
-  margin-right: 5%;
   margin-bottom: 2%;
-  width: 90%;
+  width: 100%;
   height: 32px;
   border-radius: 32px;
   border-style: none;
@@ -411,8 +444,6 @@ a {
   background: #CAE3E6; }
 
 .productText {
-  float: left;
-  margin-left: 5%;
-  margin-right: 5%; }
+  float: left; }
 
 /*# sourceMappingURL=style.css.map */
