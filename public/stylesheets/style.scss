@@ -41,6 +41,13 @@ a {
   display: flex;
   justify-content: space-between;
 }
+
+@media (min-width:900px) {
+  #top-nav-bar {
+    align-items:center;
+  }
+
+}
 /*
 ##     ##  #######  ##     ## ######## ########     ###     ######   ######## 
 ##     ## ##     ## ###   ### ##       ##     ##   ## ##   ##    ##  ##       
