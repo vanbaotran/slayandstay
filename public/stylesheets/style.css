@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 body {
-  margin-left: 5%;
-  margin-right: 5%;
   box-sizing: border-box;
   padding: 0;
   font: 14px "EB Garamond", Helvetica, Arial, sans-serif; }
@@ -16,11 +14,14 @@ a {
   text-decoration: none; }
 
 .topLine {
+  margin-left: 5%;
+  margin-right: 5%;
   display: flex;
   font-weight: bold;
   font-size: 0.8em; }
 
 #h3-inactive {
+  margin-right: 1%;
   color: gray; }
 
 #h3-active {
@@ -41,16 +42,33 @@ a {
   display: flex;
   justify-content: space-between; }
 
+#right-bar {
+  margin-right: 5%;
+  display: flex;
+  align-items: center; }
+
+#right-bar a {
+  margin: 5%; }
+
 #right-bar img {
   margin: 50%; }
 
+/*
+########   #######  ######## ########  #######  ##     ##    ##    ##    ###    ##     ##    ########     ###    ########  
+##     ## ##     ##    ##       ##    ##     ## ###   ###    ###   ##   ## ##   ##     ##    ##     ##   ## ##   ##     ## 
+##     ## ##     ##    ##       ##    ##     ## #### ####    ####  ##  ##   ##  ##     ##    ##     ##  ##   ##  ##     ## 
+########  ##     ##    ##       ##    ##     ## ## ### ##    ## ## ## ##     ## ##     ##    ########  ##     ## ########  
+##     ## ##     ##    ##       ##    ##     ## ##     ##    ##  #### #########  ##   ##     ##     ## ######### ##   ##   
+##     ## ##     ##    ##       ##    ##     ## ##     ##    ##   ### ##     ##   ## ##      ##     ## ##     ## ##    ##  
+########   #######     ##       ##     #######  ##     ##    ##    ## ##     ##    ###       ########  ##     ## ##     ## */
 #bottom-nav-bar {
-  position: sticky;
+  margin: 0;
+  position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
   padding: 2% 6%;
-  background-color: #F8E6DA;
+  background-color: #FCF5F0;
   display: flex;
   justify-content: space-between;
   align-items: center; }
@@ -63,14 +81,19 @@ a {
   margin-top: 0;
   margin-bottom: 0; }
 
-#right-bar {
-  margin-right: 5%;
+.sub-bottom-nav-bar {
   display: flex;
+  flex-direction: column;
   align-items: center; }
 
-#right-bar a {
-  margin: 5%; }
-
+/*
+##     ##    ###    ##     ## ########  ##     ## ########   ######   ######## ########  
+##     ##   ## ##   ###   ### ##     ## ##     ## ##     ## ##    ##  ##       ##     ## 
+##     ##  ##   ##  #### #### ##     ## ##     ## ##     ## ##        ##       ##     ## 
+######### ##     ## ## ### ## ########  ##     ## ########  ##   #### ######   ########  
+##     ## ######### ##     ## ##     ## ##     ## ##   ##   ##    ##  ##       ##   ##   
+##     ## ##     ## ##     ## ##     ## ##     ## ##    ##  ##    ##  ##       ##    ##  
+##     ## ##     ## ##     ## ########   #######  ##     ##  ######   ######## ##     ## */
 #menuToggle {
   display: block;
   position: relative;
@@ -104,11 +127,11 @@ a {
 
 #menuToggle span {
   display: block;
-  width: 33px;
-  height: 4px;
+  width: 30px;
+  height: 3px;
   margin-bottom: 5px;
   position: relative;
-  background: #876857;
+  background: #987561;
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;
@@ -135,10 +158,10 @@ a {
 #menu {
   position: absolute;
   width: 300%;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
-  background: #FBF0E9;
+  margin: -100% 0 0 -40%;
+  padding: 50%;
+  padding-top: 70%;
+  background: #FCF5F0;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
@@ -147,7 +170,7 @@ a {
 
 #menu li {
   padding: 10px 0;
-  font-size: 22px; }
+  font-size: 1.3em; }
 
 #menuToggle input:checked ~ ul {
   transform: none; }
@@ -191,6 +214,34 @@ a {
   margin: 0 auto;
   width: 40%; }
 
+.features h3 {
+  text-align: center; }
+
+.features img {
+  height: 30%; }
+
+#info-homepage {
+  background-color: #FCF5F0;
+  text-align: center;
+  padding: 5%;
+  margin: 5%; }
+
+.sub-info {
+  padding: 2%; }
+
+#info-contact {
+  padding: 5%;
+  margin: 0;
+  text-align: center;
+  background-color: #D6E9EB; }
+
+#info-contact a {
+  text-decoration: none; }
+
+.platform-logo {
+  max-width: 40px;
+  width: 15%; }
+
 /*
 ##     ##  ######  ######## ########     ########  ########   #######  ######## #### ##       ######## 
 ##     ## ##    ## ##       ##     ##    ##     ## ##     ## ##     ## ##        ##  ##       ##       
@@ -223,6 +274,8 @@ a {
 
 /*common with product details page*/
 .productInfo {
+  margin-left: 5%;
+  margin-right: 5%;
   display: flex;
   align-items: center;
   justify-content: space-between; }
@@ -232,15 +285,6 @@ a {
 
 .product-img {
   width: 40%; }
-
-#heart {
-  width: 5%;
-  background-color: red;
-  background-image: url(/images/icon/heart.png); }
-
-#heart:hover {
-  background-color: pink;
-  background-image: url(/images/icon/heart-filled.png); }
 
 /*
 
@@ -302,6 +346,8 @@ a {
 ##        ##     ##  #######  ########   #######   ######     ##       ########  ########    ##    ##     ## #### ########  ######  
 */
 .productDetails .image {
+  margin-left: 5%;
+  margin-right: 5%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between; }
@@ -338,8 +384,10 @@ a {
   margin-bottom: 5%; }
 
 .btn {
+  margin-left: 5%;
+  margin-right: 5%;
   margin-bottom: 2%;
-  width: 100%;
+  width: 90%;
   height: 32px;
   border-radius: 32px;
   border-style: none;
@@ -361,5 +409,10 @@ a {
 
 .addtobag:hover {
   background: #CAE3E6; }
+
+.productText {
+  float: left;
+  margin-left: 5%;
+  margin-right: 5%; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,6 +1,6 @@
 <section class='productDetails'>
 
-<div class='topLine'><h3 id='h3-inactive'>Shop > <h3 id='h3-inactive'> Products > </h3><h3 id='h3-active'> {{theProduct.productName}}</h3></div>
+<div class='topLine'><h3 id='h3-inactive'>Shop ><h3 id='h3-inactive'>Products > </h3><h3 id='h3-active'>{{theProduct.productName}}</h3></div>
 <div class = 'image'>
     <img class='active' src='{{theProduct.pictureURL.[0]}}'>
     <div class='smallDisplay'>
@@ -39,8 +39,8 @@
 <a href='/{{theProduct._id}}/addtobag'>
 <button class='btn addtobag'>ADD TO BAG</button>
 </a>
-<p>Description: {{theProduct.description}}</p>
-<p>Measurements: {{theProduct.measurements}}</p>
+<p class='productText'>Description: {{theProduct.description}}</p>
+<p class='productText'>Measurements: {{theProduct.measurements}}</p>
 {{#if isAdmin}}
 <button><a href='/products/{{theProduct._id}}/edit'>
     Edit this post  
