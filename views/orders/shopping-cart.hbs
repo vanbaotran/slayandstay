@@ -1,16 +1,40 @@
-<div id='topLine'><h3 id='h3-inactive'>Home></h3><h3 id='h3-active'>Shopping cart</h3></div>
-{{#if theProducts}}
-{{#each theProducts}}
-<div class='product-line'>
-    <img src='{{this.pictureURL.[0]}}'>
-    <h4>{{this.productName}}</h4>
-    <p>{{this.price}}€<br>
-    Size: {{this.size}}</p>
-</div>
-{{/each}}   
-<h4>Total: {{total}}</h4>
-</div>
-<a href='/checkout'><button>CHECK OUT</button></a>
-{{else}}
-  <p>Your shopping bag is empty!</p>
-{{/if}}
+<a href='/' class='h3-inactive'>Home ></a><a href='/shoppingcart' class='h3-active'> Shopping Bag</a>
+<section id='shoppingBag'>
+  {{#if theProducts}}
+  {{#each theProducts}}
+  <div class='product-line'>
+      <img src='{{this.pictureURL.[0]}}'>
+      <div class='productInfo'>
+         <h4>{{this.productName}}</h4>
+          Size: {{this.size}}</p>
+      </div>
+      <div class='priceSection'>
+        <h4>{{this.price}}€</h4>
+       <a href='/{{this._id}}/remove'>Remove</a>
+      </div>
+
+  </div>
+
+  {{/each}}   
+  <div id='line'></div>
+  <div id='summary'>
+     <div id='sub-total'><p>Sub-total:</p><p>{{total}}€</p></div>
+     <p id='suggestion'>
+       {{#if freeShipping}}
+      Only {{difference}}€ left to enjoy free shipping!
+      {{/if}}
+     </p>
+     <div id='shippingFee'>
+       <p>Shipping Fee:</p><p>{{shippingFee}}€</p>
+     </div>
+      <div id='total'>
+        <p>Total:</p><p>{{totalOrder}}€</p>
+      </div>     
+  </div>
+   
+  <a href='/checkout'><button  class='btn topBtn'>CHECK OUT</button></a>
+  <a  href='/products'><button class='btn bottomBtn'>CONTINUE SHOPPING</button></a>
+  {{else}}
+    <p>Your shopping bag is empty!</p>
+  {{/if}}
+</section>

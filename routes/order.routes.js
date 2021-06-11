@@ -69,6 +69,17 @@ router.get('/checkout',(req,res,next)=>{
             .catch(err=>next(err))       
     }
 })
+//REMOVE AN ITEM IN SHOPPING BAG
+router.get('/:id/remove',(req,res,next)=>{
+    if (req.session.cart){
+        const productId = req.params.id;
+        let index = req.session.cart.indexOf(productId)
+        req.session.cart.splice(index,1)
+        console.log('remove or not', req.session.cart)
+        res.redirect('/shoppingcart')
+    }
+}) 
+
 //PUBLIC
 router.get('/shoppingcart',(req,res)=>{
     if (req.session.cart){
@@ -79,12 +90,23 @@ router.get('/shoppingcart',(req,res)=>{
         Promise.all(promises)
         .then(products=>{
             let priceArray = products.map(el=>el.price)
-            let total = priceArray.reduce((acc,el)=>acc+el) //repeating function calculateTotal because we also need data from products 
-            res.render('orders/shopping-cart',{theProducts:products,total:total})
+            let total = priceArray.reduce((acc,el)=>acc+el) 
+            let shippingFee = 0;
+            //repeating function calculateTotal because we also need data from products 
+            if (total<79){
+                shippingFee=4.99;
+            }
+            let difference = total - 79
+            let totalOrder = total + shippingFee;
+            res.render('orders/shopping-cart',{theProducts:products,total:total,shippingFee,totalOrder,freeShipping:difference<0,difference:Math.abs(difference)})
         })
         .catch(err=>console.log('error when retrieving Product info',err))
-    }
+    } 
+    // res.redirect('/empty-bag')
 })
+// router.get('/empty-bag',(req,res,next)=>{
+//     res.render('orders/empty-shopping-cart')  
+// })
 //LOGGED IN
 router.get('/orderconfirmation',(req,res,next)=>{
     if (req.session.currentUser){

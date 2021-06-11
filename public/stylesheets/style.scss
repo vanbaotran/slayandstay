@@ -216,6 +216,7 @@ a {
   flex-direction: column;
 }
 .calltoaction p {
+  margin-top:0;
   text-align: center;
 }
 #homepage .features {
@@ -455,7 +456,7 @@ h4 {
 }
 
 .btn {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   width:100%;
   height: 32px;
   border-radius: 32px;
@@ -467,18 +468,82 @@ h4 {
   line-height: 21px;
   color:#FEFCFB;
 }
-.buynow {
+.topBtn {
   background-color: #987561;
 }
-.buynow:hover {
+.topBtn:hover {
   background-color: #D6C8C0;
 }
-.addtobag {
+.bottomBtn {
   background-color: #7AB9C1;
 }
-.addtobag:hover {
+.bottomBtn:hover {
   background: #CAE3E6;
 }
 .productText {
   float: left;
+}
+/*
+  ###    ########   #######  ##     ## ########    ##     ##  ######  
+  ## ##   ##     ## ##     ## ##     ##    ##       ##     ## ##    ## 
+ ##   ##  ##     ## ##     ## ##     ##    ##       ##     ## ##       
+##     ## ########  ##     ## ##     ##    ##       ##     ##  ######  
+######### ##     ## ##     ## ##     ##    ##       ##     ##       ## 
+##     ## ##     ## ##     ## ##     ##    ##       ##     ## ##    ## 
+##     ## ########   #######   #######     ##        #######   ######  
+*/
+#aboutUs div {
+  margin:5% 0;
+  display: flex;
+  justify-content: space-between;
+}
+#aboutUs h3 {
+  width: 65%;
+}
+section p {
+  text-align: justify;
+}
+/*
+ ######  ##     ##  #######  ########  ########  #### ##    ##  ######      ########     ###     ######   
+##    ## ##     ## ##     ## ##     ## ##     ##  ##  ###   ## ##    ##     ##     ##   ## ##   ##    ##  
+##       ##     ## ##     ## ##     ## ##     ##  ##  ####  ## ##           ##     ##  ##   ##  ##        
+ ######  ######### ##     ## ########  ########   ##  ## ## ## ##   ####    ########  ##     ## ##   #### 
+      ## ##     ## ##     ## ##        ##         ##  ##  #### ##    ##     ##     ## ######### ##    ##  
+##    ## ##     ## ##     ## ##        ##         ##  ##   ### ##    ##     ##     ## ##     ## ##    ##  
+ ######  ##     ##  #######  ##        ##        #### ##    ##  ######      ########  ##     ##  ###### 
+*/
+.product-line {
+  display:flex;
+  justify-content: space-between;
+  align-self: flex-start;
+  margin:5%;
+}
+.product-line img {
+  width: 40%;
+}
+.product-line h4 {
+  margin-bottom:2%;
+}
+#shoppingBag .productInfo {
+  margin-top: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left:0;
+}
+.priceSection {
+  margin-top:0;
+  text-align: right;
+}
+#line {
+  border: 0.5px solid #E6E6E7;
+}
+#summary div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1%;
+  padding: 0;
+}
+#suggestion {
+  color: #CDCECF;
+  text-align: right;
 }
