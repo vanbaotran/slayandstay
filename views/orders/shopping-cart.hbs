@@ -29,12 +29,16 @@
      </div>
       <div id='total'>
         <p>Total:</p><p>{{totalOrder}}€</p>
-      </div>     
+      </div>
+  
+     
   </div>
    
   <a href='/checkout'><button  class='btn topBtn'>CHECK OUT</button></a>
   <a  href='/products'><button class='btn bottomBtn'>CONTINUE SHOPPING</button></a>
   {{else}}
+  <section class='statement'>
     <p>Your shopping bag is empty!</p>
+  </section>
   {{/if}}
 </section>

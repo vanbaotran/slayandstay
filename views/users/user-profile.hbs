@@ -1,7 +1,7 @@
 
 
 {{!-- STILL NEED TO DO HTML--}}
-<a href='/' id='h3-inactive'>Home ></a><a href='/userprofile' id='h3-active'> My profile</a>
+<a href='/' class='h3-inactive'>Home ></a><a href='/userprofile' class='h3-active'> My profile</a>
 <section id='userProfile'>
 
 {{#if user}}
@@ -9,19 +9,27 @@
 <h2>Personal Info</h2>
 <section id='personal-info'>
   <img src='{{user.pictureURL}}'>
-  <div id='text-info'>
-    <h3>Name: {{user.firstName}} {{user.lastName}}</h3>
-    <h3>E-mail: {{user.email}}</h3>
-    <h3>Password: ********** </h3>
-  </div>
+    <div class='info-title'>
+      <p>Name:</p>
+      <p>E-mail:</p>
+      <p>Password:</p>
+    </div>
+    <div class='info-value'>
+      <p>{{user.firstName}} {{user.lastName}}</p>
+      <p>{{user.email}}</p>
+      <p>**********</p>
+    </div>
+
   <a href='/userprofile/edit'><img src='/images/icon/edit.png'></a>
   </section>
+
+<div id='option-list'>
+ <a href="/myorders" class='user-option'>My Orders</a>
+  <div id='line'></div>
+ <a href="/wishlist"class='user-option'>Wishlist</a>
+  <div id='line'></div>
+ <a href='/logout'class='user-option'>Log Out</a>
 </div>
-<ul>
-  <li><a href="/myorders">My Orders</a></li>
-  <li> <a href="/wishlist">Wishlist</a></li>
-  <li><a href='/logout'>Log Out</a></li>
-</ul>
 
 
 {{else}}

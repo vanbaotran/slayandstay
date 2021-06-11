@@ -235,7 +235,9 @@ a {
 .stars li {
   width: 2%;
 }
-
+#info-contact p {
+  text-align: center;
+}
 #info-contact img {
   width: 5%;
 }
@@ -284,14 +286,38 @@ a {
 */
 #personal-info {
   display: flex;
+  justify-content: space-between;
 }
-#personal-info  h3 {
-  margin: 5%;
+#personal-info img {
+  margin-top: 0;
+}
+#text-info {
+  margin-top: 5%;
+  width: 60%;
+  font-size: 0.9em;
 }
 
+.info-title, .info-value {
+  display: flex;
+  flex-direction: column;
+  margin:auto 0;
+}
+#personal-info p {
+  margin-block-start:0;
+  margin-block-end:0.5em;
+}
 
-
-
+.user-option {
+  width: 100%;
+  font-size: 1.3em;
+  line-height: 2em;
+  color: #000;
+  font-weight: bolder;
+  margin: 0 auto;
+}
+#option-list {
+  margin:5%;
+}
 
 /*
 ########  ########   #######  ########  ##     ##  ######  ########  ######     ########     ###     ######   ######## 
@@ -311,22 +337,20 @@ a {
   margin:0;
 }
 
-
 /*common with product details page*/
 .productInfo {
-  margin-top: 5%;
+  width: 90%;
+  margin: 5% auto;
   display:flex;
   align-items: flex-start;
   justify-content: space-between;
 }
-.productInfo .wishlist{
-  margin-left: auto;
+.productInfo .wishlist {
+  width: 100%;
 }
 .product-img {
   width: 100%;
 }
-
-
 #products-list ul li{
   display:inline-block;
   width: 40%;
@@ -525,25 +549,98 @@ section p {
   margin-bottom:2%;
 }
 #shoppingBag .productInfo {
-  margin-top: 0;
+  margin-top:0;
   flex-direction: column;
   justify-content: flex-start;
-  margin-left:0;
+  margin-left:5%;
 }
 .priceSection {
   margin-top:0;
   text-align: right;
 }
 #line {
-  border: 0.5px solid #E6E6E7;
+  border: 0.1px solid #F2F8F9;
+}
+#summary {
+  float: right;
+  width: 60%;
+  margin-bottom: 2%;
+}
+#summary p {
+  margin:2%;
 }
 #summary div {
   display: flex;
   justify-content: space-between;
-  margin-top: 1%;
-  padding: 0;
 }
 #suggestion {
   color: #CDCECF;
   text-align: right;
 }
+/*
+ #######  ########  ########  ######## ########      ######   #######  ##    ## ######## #### ########  ##     ##    ###    ######## ####  #######  ##    ## 
+##     ## ##     ## ##     ## ##       ##     ##    ##    ## ##     ## ###   ## ##        ##  ##     ## ###   ###   ## ##      ##     ##  ##     ## ###   ## 
+##     ## ##     ## ##     ## ##       ##     ##    ##       ##     ## ####  ## ##        ##  ##     ## #### ####  ##   ##     ##     ##  ##     ## ####  ## 
+##     ## ########  ##     ## ######   ########     ##       ##     ## ## ## ## ######    ##  ########  ## ### ## ##     ##    ##     ##  ##     ## ## ## ## 
+##     ## ##   ##   ##     ## ##       ##   ##      ##       ##     ## ##  #### ##        ##  ##   ##   ##     ## #########    ##     ##  ##     ## ##  #### 
+##     ## ##    ##  ##     ## ##       ##    ##     ##    ## ##     ## ##   ### ##        ##  ##    ##  ##     ## ##     ##    ##     ##  ##     ## ##   ### 
+ #######  ##     ## ########  ######## ##     ##     ######   #######  ##    ## ##       #### ##     ## ##     ## ##     ##    ##    ####  #######  ##    ## 
+*/
+.statement p {
+  margin-top:40%;
+  font-size: 1.5em;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+/*
+##      ## ####  ######  ##     ## ##       ####  ######  ######## 
+##  ##  ##  ##  ##    ## ##     ## ##        ##  ##    ##    ##    
+##  ##  ##  ##  ##       ##     ## ##        ##  ##          ##    
+##  ##  ##  ##   ######  ######### ##        ##   ######     ##    
+##  ##  ##  ##        ## ##     ## ##        ##        ##    ##    
+##  ##  ##  ##  ##    ## ##     ## ##        ##  ##    ##    ##    
+ ###  ###  ####  ######  ##     ## ######## ####  ######     ##    
+*/
+#wishlist .product-line {
+  align-items: center;
+  padding: 2%;
+  border: 0.1px solid #FCF5F0;
+  box-shadow: 2px 2px 2px #FCF5F0;
+}
+// #wishlist .productInfo {
+//   padding:0;
+//   flex-direction: column;
+//   justify-content: flex-start;
+//   margin-left:0;
+// }
+#wishlist .heart {
+  width: 100%;
+}
+#wishlist a {
+  display: inline-block;
+  width: 40%;
+}
+

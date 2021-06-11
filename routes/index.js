@@ -6,7 +6,7 @@ router.get('/', (req, res, next) => {
   Product.find()
   .then(productsFromDB =>{
     const random = Math.floor(Math.random()*productsFromDB.length);
-    res.render('index',{theProduct:productsFromDB[random]});
+    res.render('index',{theProduct:productsFromDB[random],message:req.flash('info')});
   })
   .catch(err=>next(err))
 });

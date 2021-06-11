@@ -1,18 +1,29 @@
 <a href='/' class='h3-inactive'>Home ></a><a href='/userprofile' class='h3-inactive'>My profile ></a><a href='/wishlist' class='h3-active'> Wishlist</a>
+<section id='wishlist'>
 {{#if theWishlist}}
   {{#each theWishlist}}
     <div class='product-line'>
-        <img src='{{this.pictureURL.[0]}}'>
-        <h4>{{this.productName}}</h4>
-        <p>{{this.price}}€<br>
-        Size:{{this.size}}</p>
-        <a href='/products/{{this._id}}/favorite'>
+        <a href='/products/{{_id}}'>
+          <img class='product-img' src='{{this.pictureURL.[0]}}'>
+        </a>
+        <div class='productInfo'>
+          <p>{{this.productName}}</p>
+          <p>{{this.price}}€</p>
+
+          <p>Size:{{this.size}}</p>
+           </div>
+    
+          <a href='/products/{{this._id}}/favorite'>
             <div class='wishlist'>
                 <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
             </div>
         </a>
+
     </div>
   {{/each}}
 {{else}}
-<div>Your wishlist is empty!</div>
+<section class='statement'>
+<p>Your wishlist is empty!</p>
+</section>
 {{/if}}
+</section>

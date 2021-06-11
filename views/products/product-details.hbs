@@ -19,21 +19,19 @@
         <p class='productPrice'>{{theProduct.price}}€</p>
         <p class='productSize'>Size {{theProduct.size}}</p>
     </div>
-
-    {{#if favorite}}
-    <a href='/products/{{theProduct._id}}/favorite'>
-        <div class='wishlist'>
-            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
-        </div>
-    </a>
-    {{else}}
-    <a href='/products/{{theProduct._id}}/favorite'>
-        <div class='wishlist'>
-            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
-        </div>
-    </a>
-    {{/if}}
-
+ {{#if favorite}}
+          <a href='/products/{{theProduct._id}}/favorite'>
+              <div class='wishlist'>
+                  <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+              </div>
+          </a>
+          {{else}}
+          <a href='/products/{{theProduct._id}}/favorite'>
+              <div class='wishlist'>
+                  <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+              </div>
+          </a>
+         {{/if}}
 </div>
 
 <a href='/{{theProduct._id}}/buynow'>

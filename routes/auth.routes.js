@@ -162,7 +162,7 @@ router.get('/wishlist',(req,res,next)=>{
       res.render('users/wishlist',{theWishlist:wishlist})
     })
     .catch(err=>next(err))
-  }
+  } 
   // res.redirect('/login')
 })
 
