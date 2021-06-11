@@ -594,7 +594,7 @@ section p {
 ##  ##  ##  ##  ##    ## ##     ## ##        ##  ##    ##    ##    
  ###  ###  ####  ######  ##     ## ######## ####  ######     ##    
 */
-#wishlist .product-line {
+#wishlist .product-line, #my-orders .product-line {
   align-items: center;
   padding: 2%;
   border: 0.1px solid #FCF5F0;
@@ -606,5 +606,43 @@ section p {
 #wishlist a {
   display: inline-block;
   width: 40%; }
+
+/*
+##     ## ##    ##     #######  ########  ########  ######## ########   ######  
+###   ###  ##  ##     ##     ## ##     ## ##     ## ##       ##     ## ##    ## 
+#### ####   ####      ##     ## ##     ## ##     ## ##       ##     ## ##       
+## ### ##    ##       ##     ## ########  ##     ## ######   ########   ######  
+##     ##    ##       ##     ## ##   ##   ##     ## ##       ##   ##         ## 
+##     ##    ##       ##     ## ##    ##  ##     ## ##       ##    ##  ##    ## 
+##     ##    ##        #######  ##     ## ########  ######## ##     ##  ######  
+*/
+#my-orders .productInfo {
+  margin-left: 3%;
+  flex-direction: column;
+  padding: 0; }
+
+#my-orders .product-line {
+  margin: 0;
+  justify-content: flex-start; }
+
+.product-line a {
+  display: inline-block;
+  width: 40%; }
+
+#my-orders img {
+  width: 100%; }
+
+#my-orders p {
+  margin-top: 0;
+  margin-block-end: 0;
+  margin-block-start: 0.5em; }
+
+.order-number {
+  width: 100%;
+  color: #000; }
+
+h5 {
+  margin-block-start: 1em;
+  margin-block-end: 1em; }
 
 /*# sourceMappingURL=style.css.map */

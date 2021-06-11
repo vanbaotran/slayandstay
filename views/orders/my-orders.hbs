@@ -1,15 +1,24 @@
 <a href='/' class='h3-inactive'>Home ></a><a href='/userprofile' class='h3-inactive'>My profile ></a><a href='/myorders' class='h3-active'>My orders</a>
-{{#if myOrders}}
-{{#each myOrders}}
-    <h4>Order number: {{_id}}</h4>
-    <a href='/myorders/{{_id}}'>
-      <div class='product-line'></div>
-        <img src='{{this.productId.[0].pictureURL.[0]}}'>    
-        <p>{{this.productId.[0].productName}}</p>
+<section id='my-orders'>
+  {{#if myOrders}}
+    {{#each myOrders}}
+        <a class='order-number' href='/myorders/{{_id}}'><h5>Order number: {{_id}}</h5></a>  
+        <div class='product-line'>
+            <a href='/myorders/{{_id}}'>
+              <img src='{{this.productId.[0].pictureURL.[0]}}'>  
+            </a>  
+              <div class='productInfo'>
+                 <p>{{this.productId.[0].productName}}</p>
+                 <p>Total: {{total}}€</p>
+              </div>
       </div>
-      <h4>Total: {{total}}€</h4>
-  </a>
-{{/each}}
-{{else}}
-You do not have any order.
-{{/if}}
+
+    {{/each}}
+    {{else}}
+    <div class='statement'>
+      <p>
+        You do not have any order.
+      </p>
+    </div>
+    {{/if}}
+</section>
