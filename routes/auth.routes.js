@@ -150,7 +150,7 @@ router.post('/userprofile/edit',fileUploader.single('pictureURL'),(req,res,next)
 
 
 // LOGOUTTTTTT
-router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
   req.session.destroy();
   res.redirect('/');
 });

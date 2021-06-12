@@ -4,11 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false);
 
-const $arrowLeft = document.getElementById('arrow-left');
-const $arrowRight = document.getElementById('arrow-right');
-const $imageDisplay = document.querySelector('.imageDisplay')
-const $allProductsImage = document.querySelectorAll('.product-img')
-// const allProductsImageSr
+// const $arrowLeft = document.getElementById('arrow-left');
+// const $arrowRight = document.getElementById('arrow-right');
+// const $imageDisplay = document.querySelector('.imageDisplay')
+// const $allProductsImage = document.querySelectorAll('.product-img');
+// const allImageSrcArray = Object.values($allProductsImage)
+// const srcArray = allImageSrcArray.map(el=>el.currentSrc)
+
+// $arrowLeft.onclick = function (){
+//   let index = srcArray.indexOf($imageDisplay.src)
+//   if (index===0){
+//     index=srcArray.length-1
+//   }
+//   index--;
+//   $imageDisplay.src=srcArray[index]
+// }
+// $arrowRight.onclick = function (){
+//   let index = srcArray.indexOf($imageDisplay.src)
+//   if (index===srcArray.length-1){
+//     index=0
+//   } 
+//   index++;
+//   $imageDisplay.src=srcArray[index]
+// }
 
 //PRODUCT DETAILS: Display each picture when clicking on the arrow left and right
 const $mainImage = document.querySelector('.active')
@@ -33,3 +51,17 @@ $heart.forEach(el=>el.onclick = function () {
     el.src=heartSrc;
   }
 })
+
+
+//PasswordToggle
+
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#password');
+
+togglePassword.addEventListener('click', function (e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye / eye slash icon
+    this.classList.toggle('bi-eye');
+});

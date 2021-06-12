@@ -4,13 +4,27 @@
 {{#each allProducts}}
 <div class='eachProduct'>
     <a href='/products/{{_id}}'>
-        <img class='product-img' src='{{pictureURL.[0]}}'>
-        <h3>{{productName}}</h3>
-        <p>{{price}}€</p>
-        
+    <img class='product-img' src='{{pictureURL.[0]}}'> 
+    <div class='productInfo'>
+        <a href='/products/{{_id}}'></a>
+    <h3>{{productName}}</h3> 
     </a>
-    <a href='/products/{{_id}}/favorite'
-    <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+    {{#if favorite}}
+    <a href='/products/{{_id}}/favorite'>
+        <div class='wishlist'>
+            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+        </div>
+    </a>
+    {{else}}
+    <a href='/products/{{_id}}/favorite'>
+        <div class='wishlist'>
+            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+        </div>
+    </a>
+    {{/if}}
+    </div>
+    
+     <p>{{price}}€</p>
 </div>
 
 
@@ -18,8 +32,8 @@
 <a href='/{{_id}}/addtobag'><button>ADD TO BAG</button></a>
 {{/each}}
 </ul>
-{{!-- {{#if isAdmin}} --}}
+{{#if isAdmin}}
 <button><a href='/products/create'>Upload an item</a></button>
-{{!-- {{/if}} --}}
+{{/if}}
 </section>
 

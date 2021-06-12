@@ -1,6 +1,6 @@
 <section class='productDetails'>
 
-<div class='topLine'><h3 id='h3-inactive'>Shop > <h3 id='h3-inactive'> Products ></h3><h3 id='h3-active'> {{theProduct.productName}}</h3></div>
+<div class='topLine'><h3 id='h3-inactive'>Shop > <h3 id='h3-inactive'> Products > </h3><h3 id='h3-active'> {{theProduct.productName}}</h3></div>
 <div class = 'image'>
     <img class='active' src='{{theProduct.pictureURL.[0]}}'>
     <div class='smallDisplay'>
@@ -10,34 +10,38 @@
     </div>
    
 </div>
-
-
-
-<h2 id='h2-active'>{{theProduct.productName}}</h2>
-{{#if favorite}}
-<a href='/products/{{theProduct._id}}/favorite'>
-    <div class='wishlist'>
-        <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+<div class='productInfo'>
+    <div class='sub-productInfo'>
+        <h2 id='productName'>{{theProduct.productName}}</h2>
+        <p class='productPrice'>{{theProduct.price}}€</p>
+        <p class='productSize'>Size {{theProduct.size}}</p>
     </div>
-</a>
-{{else}}
-<a href='/products/{{theProduct._id}}/favorite'>
-    <div class='wishlist'>
-        <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
-    </div>
-</a>
-{{/if}}
 
+    {{#if favorite}}
+    <a href='/products/{{theProduct._id}}/favorite'>
+        <div class='wishlist'>
+            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+        </div>
+    </a>
+    {{else}}
+    <a href='/products/{{theProduct._id}}/favorite'>
+        <div class='wishlist'>
+            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+        </div>
+    </a>
+    {{/if}}
 
-<p>{{theProduct.price}}€</p>
-<p>Size {{theProduct.size}}</p>
+</div>
+
 <a href='/{{theProduct._id}}/buynow'>
-<button>BUY NOW</button>
+<button class='btn buynow'>BUY NOW</button>
 </a>
-<a href='/{{theProduct._id}}/addtobag'><button>ADD TO BAG</button></a>
+<a href='/{{theProduct._id}}/addtobag'>
+<button class='btn addtobag'>ADD TO BAG</button>
+</a>
 <p>Description: {{theProduct.description}}</p>
 <p>Measurements: {{theProduct.measurements}}</p>
-{{#if admin}}
+{{#if isAdmin}}
 <button><a href='/products/{{theProduct._id}}/edit'>
     Edit this post  
 </a></button>

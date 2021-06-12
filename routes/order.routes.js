@@ -71,17 +71,19 @@ router.get('/checkout',(req,res,next)=>{
 })
 //PUBLIC
 router.get('/shoppingcart',(req,res)=>{
-    let productsArray = req.session.cart.filter((el)=>req.session.cart.indexOf(el)===req.session.cart.lastIndexOf(el))
-    console.log('products Array', productsArray)
-    let promises = [];
-    productsArray.forEach(id=>promises.push(Product.findById(id)))   
-    Promise.all(promises)
-    .then(products=>{
-        let priceArray = products.map(el=>el.price)
-        let total = priceArray.reduce((acc,el)=>acc+el) //repeating function calculateTotal because we also need data from products 
-        res.render('orders/shopping-cart',{theProducts:products,total:total})
-    })
-    .catch(err=>console.log('error when retrieving Product info',err))
+    if (req.session.cart){
+        let productsArray = req.session.cart.filter((el)=>req.session.cart.indexOf(el)===req.session.cart.lastIndexOf(el))
+        console.log('products Array', productsArray)
+        let promises = [];
+        productsArray.forEach(id=>promises.push(Product.findById(id)))   
+        Promise.all(promises)
+        .then(products=>{
+            let priceArray = products.map(el=>el.price)
+            let total = priceArray.reduce((acc,el)=>acc+el) //repeating function calculateTotal because we also need data from products 
+            res.render('orders/shopping-cart',{theProducts:products,total:total})
+        })
+        .catch(err=>console.log('error when retrieving Product info',err))
+    }
 })
 //LOGGED IN
 router.get('/orderconfirmation',(req,res,next)=>{
