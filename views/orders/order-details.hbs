@@ -4,15 +4,16 @@
 <div id='order-details'>
     <div class='product-line'>
     <img src='{{this.pictureURL.[0]}}'>
-     <div class='productInfo'>
-        <p class='productName'>{{this.productName}}</p>
-        <p>Size:{{this.size}}</p> 
-     </div>
-    <p>{{this.price}}€</p>
+        <div class='productInfo'>
+            <div>
+                <p class='productName'>{{this.productName}}</p><p>Size:{{this.size}}</p> 
+            </div>
+            <p>{{this.price}}€</p>
+        </div>
     </div>
     {{/each}}
      <p id='total'>Total: {{theOrder.total}}€</p>
-    <p>{{theOrder.createdAt}}</p>
+    <p class='date'>{{theOrder.createdAt}}</p>
     </div>
     {{#if theReview}}
     <h4>Your review</h4>

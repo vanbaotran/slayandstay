@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router = express.Router();
+const dayjs = require('dayjs')
 const User = require('../models/User.model')
 const Product = require('../models/Product.model')
 const Order = require('../models/Order.model')
@@ -127,6 +128,9 @@ router.get('/myorders',(req,res,next)=>{
         Order.find({userId:req.session.currentUser})
         .populate('productId')
         .then(orders=>{
+            orders.forEach(order => {
+                order.formattedDate = dayjs(order.createdAt).format('MMM D, YYYY')
+            })
             res.render('orders/my-orders',{myOrders: orders})
         })
         .catch(err=>next(err))
