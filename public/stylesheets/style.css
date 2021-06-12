@@ -484,7 +484,6 @@ h4 {
 .bottomBtn:hover {
   background: #CAE3E6; }
 
-<<<<<<< HEAD
 /*
 ##        #######   ######      #### ##    ##    ########     ###     ######   ######## 
 ##       ##     ## ##    ##      ##  ###   ##    ##     ##   ## ##   ##    ##  ##       
@@ -532,7 +531,6 @@ h4 {
   margin-left: -30px;
   cursor: pointer;
   max-width: 10%; }
-=======
 .productText {
   float: left; }
 
@@ -703,6 +701,5 @@ section p {
 h5 {
   margin-block-start: 1em;
   margin-block-end: 1em; }
->>>>>>> c059ea54574cff519ab1b5cff16405d96024e703
 
 /*# sourceMappingURL=style.css.map */

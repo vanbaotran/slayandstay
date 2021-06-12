@@ -32,6 +32,11 @@ mongoose
     console.error('Error connecting to mongo', err)
   });
 
+
+ 
+
+
+
 app.use(flash());
 
 app.use(
@@ -45,6 +50,8 @@ app.use(
       })
   })
 );
+
+
 
 // Middleware Setup
 app.use(logger('dev'));
