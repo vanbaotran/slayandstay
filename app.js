@@ -24,7 +24,7 @@ const app = express();
 require('./configs/session.config')(app);
 
 mongoose
-  .connect('mongodb://localhost/project2', {useNewUrlParser: true, useUnifiedTopology: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -45,13 +45,6 @@ app.use(
       })
   })
 );
-
- 
-// ...
- 
-
-
-// ...
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -75,9 +68,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
-
-
+app.locals.title = 'Slay and Stay';
 
 const index = require('./routes/index');
 app.use('/', index);

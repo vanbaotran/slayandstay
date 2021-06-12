@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 body {
-  margin-left:5%;
-  margin-right:5%;
+  margin:5%;
   box-sizing: border-box;
   padding: 0;
   font: 14px "EB Garamond", Helvetica, Arial, sans-serif;
 }
-
+h3 {
+  font-size:1.5em;
+}
+p {
+  font-size: em;
+}
 a {
   color: #00B7FF;
 }
@@ -21,10 +25,10 @@ a {
   font-weight: bold;
   font-size: 0.8em;
 }
-#h3-inactive {
-  color: gray
+.h3-inactive {
+  color: gray;
 }
-#h3-active {
+.h3-active {
   color: black;
 }
 /*
@@ -42,16 +46,34 @@ a {
   display: flex;
   justify-content: space-between;
 }
+#right-bar{
+  margin-right: 5%;
+  display: flex;
+  align-items: center;
+}
+#right-bar a{
+  margin: 5%;
+}
 #right-bar img {
   margin:50%;
 }
+
+/*
+########   #######  ######## ########  #######  ##     ##    ##    ##    ###    ##     ##    ########     ###    ########  
+##     ## ##     ##    ##       ##    ##     ## ###   ###    ###   ##   ## ##   ##     ##    ##     ##   ## ##   ##     ## 
+##     ## ##     ##    ##       ##    ##     ## #### ####    ####  ##  ##   ##  ##     ##    ##     ##  ##   ##  ##     ## 
+########  ##     ##    ##       ##    ##     ## ## ### ##    ## ## ## ##     ## ##     ##    ########  ##     ## ########  
+##     ## ##     ##    ##       ##    ##     ## ##     ##    ##  #### #########  ##   ##     ##     ## ######### ##   ##   
+##     ## ##     ##    ##       ##    ##     ## ##     ##    ##   ### ##     ##   ## ##      ##     ## ##     ## ##    ##  
+########   #######     ##       ##     #######  ##     ##    ##    ## ##     ##    ###       ########  ##     ## ##     ## */
 #bottom-nav-bar {
-  position: sticky;
+  margin:0;
+  position: fixed;
   bottom: 0;
   left:0;
-  width: 100%;
+  width: 90%;
   padding: 2% 6%;
-  background-color: #F8E6DA;
+  background-color: #FCF5F0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,19 +86,24 @@ a {
   margin-top: 0;
   margin-bottom: 0;
 }
-#right-bar{
-  margin-right: 5%;
+.sub-bottom-nav-bar{
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
-#right-bar a{
-  margin: 5%;
-}
+/*
+##     ##    ###    ##     ## ########  ##     ## ########   ######   ######## ########  
+##     ##   ## ##   ###   ### ##     ## ##     ## ##     ## ##    ##  ##       ##     ## 
+##     ##  ##   ##  #### #### ##     ## ##     ## ##     ## ##        ##       ##     ## 
+######### ##     ## ## ### ## ########  ##     ## ########  ##   #### ######   ########  
+##     ## ######### ##     ## ##     ## ##     ## ##   ##   ##    ##  ##       ##   ##   
+##     ## ##     ## ##     ## ##     ## ##     ## ##    ##  ##    ##  ##       ##    ##  
+##     ## ##     ## ##     ## ########   #######  ##     ##  ######   ######## ##     ## */
 #menuToggle{
   display: block;
   position: relative;
-  top: 40%;
-  left: 10%;
+  top: 0%;
+  left: -5%;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -94,25 +121,24 @@ a {
 #menuToggle input
 {
   display: block;
-  width: 40px;
-  height: 32px;
+  width: 20%;
+  height: 18%;
   position: absolute;
-  top: -7px;
-  left: -5px;
+  top: -10%;
+  left: -5%;
   cursor: pointer;
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
-  
   -webkit-touch-callout: none;
 }
 #menuToggle span
 {
   display: block;
-  width: 33px;
-  height: 4px;
+  width: 30px;
+  height: 3px;
   margin-bottom: 5px;
   position: relative;
-  background: #876857;
+  background: #987561;
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;
@@ -147,11 +173,11 @@ a {
 }
 #menu {
   position: absolute;
-  width: 300%;
+  width: 300px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  background: #FBF0E9;
+  background: #FCF5F0;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
@@ -161,7 +187,7 @@ a {
 #menu li
 {
   padding: 10px 0;
-  font-size: 22px;
+  font-size: 1.3em;
 }
 #menuToggle input:checked ~ ul
 {
@@ -183,18 +209,34 @@ a {
 ##     ## ##     ## ##     ## ##       ##        ##     ## ##    ##  ##       
 ##     ##  #######  ##     ## ######## ##        ##     ##  ######   ######## 
 */
+
 #homepage  h2{
  text-align: center;
+ font-size: 1.3em;
+}
+#title {
+  font-family: 'Boska', serif;
+  margin-bottom: 0;
 }
 #homepage img{
   width: 100%;
   height: 50%;
+}
+.calltoaction {
+  color:black;
+  display: flex;
+  flex-direction: column;
+}
+.calltoaction p {
+  margin-top:0;
+  text-align: center;
 }
 #homepage .features {
   display:flex;
 }
 #homepage .features h3{
   margin:auto;
+  font-size: 1.1em;
 }
 #homepage .features img{
   width: 50%;
@@ -205,15 +247,45 @@ a {
 .stars li {
   width: 2%;
 }
-
+#info-contact p {
+  text-align: center;
+}
 #info-contact img {
   width: 5%;
 }
-
 #displayImg {
   height: 40%;
   margin: 0 auto;
   width: 40%;
+}
+.features h3 {
+  text-align: center;
+}
+.features img {
+  height: 30%;
+}
+#info-homepage {
+  background-color:#FCF5F0;
+  text-align: center;
+  padding: 5%;
+  margin: 5%;
+}
+.sub-info {
+  padding:2%;
+}
+#info-contact {
+  padding: 5%;
+  margin:0;
+  text-align: center;
+  background-color: #D6E9EB;
+}
+#info-contact a {
+  text-decoration: none;
+
+}
+.platform-logo {
+  max-width: 40px;
+  width: 15%;
 }
 /*
 ##     ##  ######  ######## ########     ########  ########   #######  ######## #### ##       ######## 
@@ -226,14 +298,38 @@ a {
 */
 #personal-info {
   display: flex;
+  justify-content: space-between;
 }
-#personal-info  h3 {
-  margin: 5%;
+#personal-info img {
+  margin-top: 0;
+}
+#text-info {
+  margin-top: 5%;
+  width: 60%;
+  font-size: 0.9em;
 }
 
+.info-title, .info-value {
+  display: flex;
+  flex-direction: column;
+  margin:auto 0;
+}
+#personal-info p {
+  margin-block-start:0;
+  margin-block-end:0.5em;
+}
 
-
-
+.user-option {
+  width: 100%;
+  font-size: 1.3em;
+  line-height: 2em;
+  color: #000;
+  font-weight: bolder;
+  margin: 0 auto;
+}
+#option-list {
+  margin:5%;
+}
 
 /*
 ########  ########   #######  ########  ##     ##  ######  ########  ######     ########     ###     ######   ######## 
@@ -244,37 +340,46 @@ a {
 ##        ##    ##  ##     ## ##     ## ##     ## ##    ##    ##    ##    ##    ##        ##     ## ##    ##  ##       
 ##        ##     ##  #######  ########   #######   ######     ##     ######     ##        ##     ##  ######   ######## 
 */
-@media (min-width:900px){
-  #products-list ul {
+#products-list ul {
   display: flex;
   flex-wrap: wrap;
   margin:0;
+  padding:0;
+  padding-inline-start:0;
+  margin:0;
 }
-}
+
 /*common with product details page*/
 .productInfo {
+  width: 100%;
+  margin: 5% auto;
   display:flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
-.productInfo .wishlist{
-  margin-left: auto;
+.productInfo .wishlist {
+  width: 100%;
 }
 .product-img {
+  width: 100%;
+}
+#products-list ul li{
+  display:inline-block;
   width: 40%;
+  margin:5%;
 }
-#heart {
-  width: 5%;
-  background-color:red;
-  background-image: url(/images/icon/heart.png);
+.eachProduct .heart{
+  width: 50%;
+  margin-left: auto;
+  margin-right:0;
 }
-
-#heart:hover{
-  background-color:pink;
-  background-image: url(/images/icon/heart-filled.png);
+.eachProduct a {
+  text-decoration: none;
+  color: black;
 }
-
-
+h4 {
+  font-size: 1em;
+}
 
 /*
 
@@ -364,6 +469,7 @@ a {
   font-style: normal;
   font-weight: bold;
   font-size: 2em; 
+  margin-top:0;
   margin-bottom: 0;
   padding-bottom: 0;
 }
@@ -371,14 +477,22 @@ a {
   margin-top: 0;
   margin-bottom: 0;
   padding:0;
+  font-size: 0.8em;
 }
 .sub-productInfo {
   display: flex;
   flex-direction: column;
-  margin-bottom:5%
+  margin-bottom:5%;
+  font-weight: bold;
 }
+
+.productName {
+  margin:0;
+  font-size: 1em;
+}
+
 .btn {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   width:100%;
   height: 32px;
   border-radius: 32px;
@@ -390,16 +504,18 @@ a {
   line-height: 21px;
   color:#FEFCFB;
 }
-.buynow {
+.topBtn {
   background-color: #987561;
 }
-.buynow:hover {
+.topBtn:hover {
   background-color: #D6C8C0;
 }
 .addtobag {
   background-color: #7AB9C1; 
+.bottomBtn {
+  background-color: #7AB9C1;
 }
-.addtobag:hover {
+.bottomBtn:hover {
   background: #CAE3E6;
 }
 /*
@@ -455,4 +571,176 @@ background: #D6C8C0;
   margin-left: -30px;
   cursor: pointer;
   max-width: 10%;
+.productText {
+  float: left;
+}
+/*
+  ###    ########   #######  ##     ## ########    ##     ##  ######  
+  ## ##   ##     ## ##     ## ##     ##    ##       ##     ## ##    ## 
+ ##   ##  ##     ## ##     ## ##     ##    ##       ##     ## ##       
+##     ## ########  ##     ## ##     ##    ##       ##     ##  ######  
+######### ##     ## ##     ## ##     ##    ##       ##     ##       ## 
+##     ## ##     ## ##     ## ##     ##    ##       ##     ## ##    ## 
+##     ## ########   #######   #######     ##        #######   ######  
+*/
+#aboutUs div {
+  margin:5% 0;
+  display: flex;
+  justify-content: space-between;
+}
+#aboutUs h3 {
+  width: 65%;
+}
+section p {
+  text-align: justify;
+}
+/*
+ ######  ##     ##  #######  ########  ########  #### ##    ##  ######      ########     ###     ######   
+##    ## ##     ## ##     ## ##     ## ##     ##  ##  ###   ## ##    ##     ##     ##   ## ##   ##    ##  
+##       ##     ## ##     ## ##     ## ##     ##  ##  ####  ## ##           ##     ##  ##   ##  ##        
+ ######  ######### ##     ## ########  ########   ##  ## ## ## ##   ####    ########  ##     ## ##   #### 
+      ## ##     ## ##     ## ##        ##         ##  ##  #### ##    ##     ##     ## ######### ##    ##  
+##    ## ##     ## ##     ## ##        ##         ##  ##   ### ##    ##     ##     ## ##     ## ##    ##  
+ ######  ##     ##  #######  ##        ##        #### ##    ##  ######      ########  ##     ##  ###### 
+*/
+.product-line {
+  display:flex;
+  justify-content: space-between;
+  align-self: flex-start;
+  margin:5%;
+}
+.product-line img {
+  width: 40%;
+}
+.product-line h4 {
+  margin-bottom:2%;
+}
+#shoppingBag .productInfo {
+  margin-top:0;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left:5%;
+}
+.priceSection {
+  margin-top:0;
+  text-align: right;
+}
+#line {
+  border: 0.1px solid #F2F8F9;
+}
+#summary {
+  float: right;
+  width: 60%;
+  margin-bottom: 2%;
+}
+#summary p {
+  margin:2%;
+}
+#summary div {
+  display: flex;
+  justify-content: space-between;
+}
+#suggestion {
+  color: #CDCECF;
+  text-align: right;
+}
+/*
+ #######  ########  ########  ######## ########      ######   #######  ##    ## ######## #### ########  ##     ##    ###    ######## ####  #######  ##    ## 
+##     ## ##     ## ##     ## ##       ##     ##    ##    ## ##     ## ###   ## ##        ##  ##     ## ###   ###   ## ##      ##     ##  ##     ## ###   ## 
+##     ## ##     ## ##     ## ##       ##     ##    ##       ##     ## ####  ## ##        ##  ##     ## #### ####  ##   ##     ##     ##  ##     ## ####  ## 
+##     ## ########  ##     ## ######   ########     ##       ##     ## ## ## ## ######    ##  ########  ## ### ## ##     ##    ##     ##  ##     ## ## ## ## 
+##     ## ##   ##   ##     ## ##       ##   ##      ##       ##     ## ##  #### ##        ##  ##   ##   ##     ## #########    ##     ##  ##     ## ##  #### 
+##     ## ##    ##  ##     ## ##       ##    ##     ##    ## ##     ## ##   ### ##        ##  ##    ##  ##     ## ##     ##    ##     ##  ##     ## ##   ### 
+ #######  ##     ## ########  ######## ##     ##     ######   #######  ##    ## ##       #### ##     ## ##     ## ##     ##    ##    ####  #######  ##    ## 
+*/
+.statement p {
+  margin-top:40%;
+  font-size: 1.5em;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+}
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+/*
+##      ## ####  ######  ##     ## ##       ####  ######  ######## 
+##  ##  ##  ##  ##    ## ##     ## ##        ##  ##    ##    ##    
+##  ##  ##  ##  ##       ##     ## ##        ##  ##          ##    
+##  ##  ##  ##   ######  ######### ##        ##   ######     ##    
+##  ##  ##  ##        ## ##     ## ##        ##        ##    ##    
+##  ##  ##  ##  ##    ## ##     ## ##        ##  ##    ##    ##    
+ ###  ###  ####  ######  ##     ## ######## ####  ######     ##    
+*/
+#wishlist .product-line, #my-orders .product-line {
+  align-items: center;
+  padding: 2%;
+  border: 0.1px solid #FCF5F0;
+  box-shadow: 2px 2px 2px #FCF5F0;
+}
+
+#wishlist .heart {
+  width: 100%;
+}
+#wishlist a {
+  display: inline-block;
+  width: 40%;
+}
+
+/*
+##     ## ##    ##     #######  ########  ########  ######## ########   ######  
+###   ###  ##  ##     ##     ## ##     ## ##     ## ##       ##     ## ##    ## 
+#### ####   ####      ##     ## ##     ## ##     ## ##       ##     ## ##       
+## ### ##    ##       ##     ## ########  ##     ## ######   ########   ######  
+##     ##    ##       ##     ## ##   ##   ##     ## ##       ##   ##         ## 
+##     ##    ##       ##     ## ##    ##  ##     ## ##       ##    ##  ##    ## 
+##     ##    ##        #######  ##     ## ########  ######## ##     ##  ######  
+*/
+#my-orders .productInfo {
+  margin-left:3%;
+  flex-direction:column;
+  padding:0;
+}
+#my-orders .product-line {
+  margin: 0;
+  justify-content: flex-start;
+}
+.product-line a {
+  display: inline-block;
+  width: 40%;
+}
+#my-orders img {
+  width: 100%;
+}
+#my-orders p {
+  margin-top:0;
+  margin-block-end: 0;
+  margin-block-start: 0.5em;
+}
+.order-number {
+  width: 100%;
+  color: #000;
+}
+h5{
+  margin-block-start: 1em;
+  margin-block-end:1em;
 }

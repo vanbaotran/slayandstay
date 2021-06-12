@@ -1,36 +1,36 @@
-<section id='products-list'>
-<ul>
-
-{{#each allProducts}}
-<div class='eachProduct'>
-    <a href='/products/{{_id}}'>
-    <img class='product-img' src='{{pictureURL.[0]}}'> 
-    <div class='productInfo'>
-        <a href='/products/{{_id}}'></a>
-    <h3>{{productName}}</h3> 
-    </a>
-    {{#if favorite}}
-    <a href='/products/{{_id}}/favorite'>
-        <div class='wishlist'>
-            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
-        </div>
-    </a>
-    {{else}}
-    <a href='/products/{{_id}}/favorite'>
-        <div class='wishlist'>
-            <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
-        </div>
-    </a>
-    {{/if}}
-    </div>
-    
-     <p>{{price}}€</p>
+   <div class='topLine'><h3 class='h3-inactive'>Shop><h3 class='h3-active'>Products</h3>
 </div>
+<section id='products-list'>
 
-
-<a href='/{{_id}}/buynow'><button>BUY NOW</button></a>
-<a href='/{{_id}}/addtobag'><button>ADD TO BAG</button></a>
-{{/each}}
+<ul>
+    {{#each allProducts}}
+    <li>
+        <div class='eachProduct'>
+            <a href='/products/{{_id}}'>
+            <img class='product-img' src='{{pictureURL.[0]}}'> 
+            <a href='/products/{{_id}}'>
+                <div class='productInfo'>
+                    <div class='sub-productInfo'>
+                        <p class='productName'>{{productName}}</p> 
+                        <p class='productPrice'>{{price}}€</p>
+                    </div> 
+            </a>
+            {{#if favorite}}
+            <a href='/products/{{_id}}/favorite'>
+                <div class='wishlist'>
+                    <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
+                </div>
+            </a>
+            {{else}}
+            <a href='/products/{{_id}}/favorite'>
+                <div class='wishlist'>
+                    <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145410/photos/heart_jmddcq.png'>
+                </div>
+            </a>
+            {{/if}}
+        </div>  
+    </li>
+    {{/each}}
 </ul>
 {{#if isAdmin}}
 <button><a href='/products/create'>Upload an item</a></button>
