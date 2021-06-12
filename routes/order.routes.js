@@ -83,8 +83,8 @@ router.get('/:id/remove',(req,res,next)=>{
 //PUBLIC
 router.get('/shoppingcart',(req,res)=>{
     if (req.session.cart){
-        let productsArray = req.session.cart.filter((el)=>req.session.cart.indexOf(el)===req.session.cart.lastIndexOf(el))
-        console.log('products Array', productsArray)
+    let productsArray = req.session.cart.filter((el)=>req.session.cart.indexOf(el)===req.session.cart.lastIndexOf(el))
+    console.log('products Array', productsArray)
         let promises = [];
         productsArray.forEach(id=>promises.push(Product.findById(id)))   
         Promise.all(promises)
@@ -99,14 +99,14 @@ router.get('/shoppingcart',(req,res)=>{
             let difference = total - 79
             let totalOrder = total + shippingFee;
             res.render('orders/shopping-cart',{theProducts:products,total:total,shippingFee,totalOrder,freeShipping:difference<0,difference:Math.abs(difference)})
+
         })
         .catch(err=>console.log('error when retrieving Product info',err))
-    } 
-    // res.redirect('/empty-bag')
+    } else {
+        res.render('orders/shopping-cart')
+    }
 })
-// router.get('/empty-bag',(req,res,next)=>{
-//     res.render('orders/empty-shopping-cart')  
-// })
+
 //LOGGED IN
 router.get('/orderconfirmation',(req,res,next)=>{
     if (req.session.currentUser){
@@ -127,7 +127,6 @@ router.get('/myorders',(req,res,next)=>{
         Order.find({userId:req.session.currentUser})
         .populate('productId')
         .then(orders=>{
-            let productsArray = orders.map(el=>el.productId)
             res.render('orders/my-orders',{myOrders: orders})
         })
         .catch(err=>next(err))

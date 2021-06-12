@@ -2,15 +2,18 @@
 <section id='my-orders'>
   {{#if myOrders}}
     {{#each myOrders}}
-        <a class='order-number' href='/myorders/{{_id}}'><h5>Order number: {{_id}}</h5></a>  
+        <a class='order-number' href='/myorders/{{_id}}'><h5>Order #{{_id}}</h5></a>  
         <div class='product-line'>
             <a href='/myorders/{{_id}}'>
               <img src='{{this.productId.[0].pictureURL.[0]}}'>  
             </a>  
               <div class='productInfo'>
-                 <p>{{this.productId.[0].productName}}</p>
+                <a href='/myorders/{{_id}}'>
+                  <p>{{this.productId.[0].productName}}</p>
+                </a>
                  <p>Total: {{total}}€</p>
               </div>
+              <p>{{createdAt}}</p>
       </div>
 
     {{/each}}

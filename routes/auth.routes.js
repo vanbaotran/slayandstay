@@ -165,7 +165,11 @@ router.get('/wishlist',(req,res,next)=>{
     .then(user=>{
       const wishlist = user.wishlist
       console.log('USER FOUND WITH WISHLIST',user)
-      res.render('users/wishlist',{theWishlist:wishlist})
+      if (wishlist.length>0) {
+        res.render('users/wishlist',{theWishlist:wishlist})
+      } else {
+        res.render('users/wishlist')
+      }
     })
     .catch(err=>next(err))
   } 

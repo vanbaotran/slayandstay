@@ -1,51 +1,55 @@
 <a href='/' class='h3-inactive'>Home ></a><a href='/myorders' class='h3-inactive'>My orders ></a><a href='/myorders/{{theOrder._id}}' class='h3-active'> Order details</a>
-<h4>Order number: {{theOrder._id}}</h4>
+<h4>Order #{{theOrder._id}}</h4>
 {{#each theOrder.productId}}
-<div class='product-line'>
+<div id='order-details'>
+    <div class='product-line'>
     <img src='{{this.pictureURL.[0]}}'>
-    <h4>{{this.productName}}</h4>
-    <p>{{this.price}}€<br>
-    {{this.size}}</p>
-</div>
-{{/each}}
-<h4>Total: {{theOrder.total}}€</h4>
-</div>
-{{#if theReview}}
-<h4>Your review</h4>
-<p>Subject:{{theReview.subjectLine}}</p>
-<p>Rating: {{theReview.rating}}/5 ☆</p>
-
-<p>{{theReview.reviewDetails}}</p>
-<a href='/{{theReview._id}}/deleteReview'>Delete this review</a>
-{{/if}}
-
-      
-<form name='reviewForm' action='/myorders/{{theOrder._id}}/submitReview' method="POST">
-    <label>
-        Subject:
+     <div class='productInfo'>
+        <p class='productName'>{{this.productName}}</p>
+        <p>Size:{{this.size}}</p> 
+     </div>
+    <p>{{this.price}}€</p>
+    </div>
+    {{/each}}
+     <p id='total'>Total: {{theOrder.total}}€</p>
+    <p>{{theOrder.createdAt}}</p>
+    </div>
+    {{#if theReview}}
+    <h4>Your review</h4>
+    <p>Subject:{{theReview.subjectLine}}</p>
+    <p>Rating: {{theReview.rating}}/5 ☆</p>
+    <p>{{theReview.reviewDetails}}</p>
+    <a href='/{{theReview._id}}/deleteReview'>Delete this review</a>
+    {{/if}}
+<div class='reviewForm'>
+    <form action='/myorders/{{theOrder._id}}/submitReview' method="POST">
+    <div class='info-title'>
+        <p>Rate this product</p>
+        <p>Headline:</p>   
+        <p>Review:</p>
+    </div>
+    <div class ='info-value'>
+        <form>
+            <div class="rating">
+                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                <label for="star5">☆</label>
+                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                <label for="star4">☆</label>
+                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                <label for="star3">☆</label>
+                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                <label for="star2">☆</label>
+                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                <label for="star1">☆</label>
+                <div class="clear"></div>
+            </div>
+        </form>
         <input type="text" name='subjectLine'>
-    </label>
-        <div class='review-content'>
-        <div class="txt-center">
-            <form>
-                <div class="rating">
-                    <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
-                    <label for="star5">☆</label>
-                    <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
-                    <label for="star4">☆</label>
-                    <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
-                    <label for="star3">☆</label>
-                    <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
-                    <label for="star2">☆</label>
-                    <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
-                    <label for="star1">☆</label>
-                    <div class="clear"></div>
-                </div>
-             </form>
-        </div>    
-        
-     <label>
         <input type="text" name='reviewDetails'>
-    </label>
-    <button>Submit review</button>
-</form>
+    </div>
+        <button>Submit review</button>
+    </form>
+
+</div>
+
+

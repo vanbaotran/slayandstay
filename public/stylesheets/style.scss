@@ -31,6 +31,12 @@ a {
 .h3-active {
   color: black;
 }
+#wrapper {
+  padding-bottom: 67px;
+}
+main {
+  overflow: hidden;
+}
 /*
 ##    ##    ###    ##     ##         ########     ###    ########  
 ###   ##   ## ##   ##     ##         ##     ##   ## ##   ##     ## 
@@ -102,10 +108,10 @@ a {
 #menuToggle{
   display: block;
   position: relative;
-  top: 0%;
+  top: 30%;
   left: -5%;
   z-index: 1;
-  -webkit-user-select: none;
+  -webkit-user-select: none;  
   user-select: none;
 }
 #menuToggle a
@@ -121,7 +127,7 @@ a {
 #menuToggle input
 {
   display: block;
-  width: 20%;
+  width: 15%;
   height: 18%;
   position: absolute;
   top: -10%;
@@ -558,8 +564,7 @@ section p {
   justify-content: flex-start;
   margin-left:5%;
 }
-.priceSection {
-  margin-top:0;
+.priceSection h4{
   text-align: right;
 }
 #line {
@@ -591,6 +596,7 @@ section p {
  #######  ##     ## ########  ######## ##     ##     ######   #######  ##    ## ##       #### ##     ## ##     ## ##     ##    ##    ####  #######  ##    ## 
 */
 .statement p {
+  width:80%;
   margin-top:40%;
   font-size: 1.5em;
   text-align: center;
@@ -659,32 +665,39 @@ section p {
 }
 #my-orders .product-line {
   margin: 0;
-  justify-content: flex-start;
+  align-items: center ;
 }
 .product-line a {
+  margin-top:0;
   display: inline-block;
-  width: 40%;
+  width: 100%;
 }
 #my-orders img {
   width: 100%;
 }
 #my-orders p {
+  text-align: left;
   margin-top:0;
   margin-block-end: 0;
-  margin-block-start: 0.5em;
+  margin-block-start: 0;
 }
 .order-number {
   width: 100%;
   color: #000;
 }
 h5{
+  margin-left:5%;
   margin-block-start: 1em;
   margin-block-end:1em;
 }
-
-
-
-
+/*
+##        #######   ######   #### ##    ##    ########     ###     ######   ######## 
+##       ##     ## ##    ##   ##  ###   ##    ##     ##   ## ##   ##    ##  ##       
+##       ##     ## ##         ##  ####  ##    ##     ##  ##   ##  ##        ##       
+##       ##     ## ##   ####  ##  ## ## ##    ########  ##     ## ##   #### ######   
+##       ##     ## ##    ##   ##  ##  ####    ##        ######### ##    ##  ##       
+##       ##     ## ##    ##   ##  ##   ###    ##        ##     ## ##    ##  ##       
+########  #######   ######   #### ##    ##    ##        ##     ##  ######   ########*/
 
 
 .btn-blue {
@@ -728,4 +741,57 @@ max-width: 10%;
 }
 .productText {
 float: left;
+}
+/*
+ #######  ########  ########  ######## ########     ########  ######## ########    ###    #### ##        ######  
+##     ## ##     ## ##     ## ##       ##     ##    ##     ## ##          ##      ## ##    ##  ##       ##    ## 
+##     ## ##     ## ##     ## ##       ##     ##    ##     ## ##          ##     ##   ##   ##  ##       ##       
+##     ## ########  ##     ## ######   ########     ##     ## ######      ##    ##     ##  ##  ##        ######  
+##     ## ##   ##   ##     ## ##       ##   ##      ##     ## ##          ##    #########  ##  ##             ## 
+##     ## ##    ##  ##     ## ##       ##    ##     ##     ## ##          ##    ##     ##  ##  ##       ##    ## 
+ #######  ##     ## ########  ######## ##     ##    ########  ########    ##    ##     ## #### ########  ######
+*/
+#order-details {
+  background-color:#FCF5F0;
+  border-radius: 15px;
+  padding: 2%;
+}
+#order-details .product-line {
+  align-items: center;
+}
+#order-details .productInfo {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding:5%;
+}
+#order-details .productInfo p { 
+  margin:2%;
+  width: 100%;
+  text-align: left;
+} 
+#total {
+  text-align: right;
+  margin-right: 5%;
+}
+.productName {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.reviewFrom {
+ display: flex;
+ background-color:pink;
+}
+
+#rating, #headline, .txt-center {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+#rating, #headline, .txt-center p{
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.txt-center input {
+  height: 400%;
 }
