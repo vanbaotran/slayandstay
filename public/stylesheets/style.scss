@@ -193,13 +193,6 @@ a {
 {
   transform: none;
 }
-
-@media (min-width:900px) {
-  #top-nav-bar {
-    align-items:center;
-  }
-
-}
 /*
 ##     ##  #######  ##     ## ######## ########     ###     ######   ######## 
 ##     ## ##     ## ###   ### ##       ##     ##   ## ##   ##    ##  ##       
@@ -382,7 +375,6 @@ h4 {
 }
 
 /*
-
 #######  ########  ########  ######## ########     ########  ######## ########    ###    #### ##        ######  
 ##     ## ##     ## ##     ## ##       ##     ##    ##     ## ##          ##      ## ##    ##  ##       ##    ## 
 ##     ## ##     ## ##     ## ##       ##     ##    ##     ## ##          ##     ##   ##   ##  ##       ##       
@@ -510,67 +502,12 @@ h4 {
 .topBtn:hover {
   background-color: #D6C8C0;
 }
-.addtobag {
-  background-color: #7AB9C1; 
 .bottomBtn {
   background-color: #7AB9C1;
 }
 .bottomBtn:hover {
   background: #CAE3E6;
 }
-/*
-##        #######   ######      #### ##    ##    ########     ###     ######   ######## 
-##       ##     ## ##    ##      ##  ###   ##    ##     ##   ## ##   ##    ##  ##       
-##       ##     ## ##            ##  ####  ##    ##     ##  ##   ##  ##        ##       
-##       ##     ## ##   ####     ##  ## ## ##    ########  ##     ## ##   #### ######   
-##       ##     ## ##    ##      ##  ##  ####    ##        ######### ##    ##  ##       
-##       ##     ## ##    ##      ##  ##   ###    ##        ##     ## ##    ##  ##       
-########  #######   ######      #### ##    ##    ##        ##     ##  ######   ######## 
-*/
-
-
- .btn-blue {
-    margin-bottom: 2%;
-    width:50%;
-    height: 32px;
-    border-radius: 32px;
-    border-style: none;
-    font-family: EB Garamond;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 21px;
-    color:#FEFCFB;
-    background-color: #7AB9C1; 
-}
-
-.btn-blue:hover {
-  background: #CAE3E6;
-}
-
-.btn-brown {
-  margin-bottom: 2%;
-  width:50%;
-  height: 32px;
-  border-radius: 32px;
-  border-style: none;
-  font-family: EB Garamond;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 21px;
-  color:#FEFCFB;
-  background-color: #987561; 
-}
-
-.btn-brown:hover {
-background: #D6C8C0;
-}
-
-.signup i {
-  margin-left: -30px;
-  cursor: pointer;
-  max-width: 10%;
 .productText {
   float: left;
 }
@@ -740,7 +677,55 @@ section p {
   width: 100%;
   color: #000;
 }
-h5 {
- margin-block-start: 1em;
+h5{
+  margin-block-start: 1em;
   margin-block-end:1em;
+}
+
+
+
+
+
+
+.btn-blue {
+  margin-bottom: 2%;
+  width:50%;
+  height: 32px;
+  border-radius: 32px;
+  border-style: none;
+  font-family: EB Garamond;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  color:#FEFCFB;
+  background-color: #7AB9C1;
+}
+.btn-blue:hover {
+background: #CAE3E6;
+}
+.btn-brown {
+margin-bottom: 2%;
+width:50%;
+height: 32px;
+border-radius: 32px;
+border-style: none;
+font-family: EB Garamond;
+font-style: normal;
+font-weight: bold;
+font-size: 16px;
+line-height: 21px;
+color:#FEFCFB;
+background-color: #987561;
+}
+.btn-brown:hover {
+background: #D6C8C0;
+}
+.signup i {
+margin-left: -30px;
+cursor: pointer;
+max-width: 10%;
+}
+.productText {
+float: left;
 }
