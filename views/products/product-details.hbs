@@ -40,15 +40,17 @@
 <a href='/{{theProduct._id}}/addtobag'>
 <button class='btn bottomBtn'>ADD TO BAG</button>
 </a>
-<p class='productText'>Description: {{theProduct.description}}</p>
-<p class='productText'>Measurements: {{theProduct.measurements}}</p>
-{{#if isAdmin}}
-<button><a href='/products/{{theProduct._id}}/edit'>
-    Edit this post  
-</a></button>
-<button><a href='/products/{{theProduct._id}}/delete'>
-    Delete this post  
-</a></button>
-{{/if}}
+<div class='productText'>
+    <p>Description: {{theProduct.description}}</p>
+    <p>Measurements: {{theProduct.measurements}}</p>
+</div>
 
+{{#if isAdmin}}
+<a href='/products/{{theProduct._id}}/edit'>
+    Edit this post  
+</a>
+<a href='/products/{{theProduct._id}}/delete'>
+    Delete this post  
+</a>
+{{/if}}
 </section>
