@@ -311,9 +311,10 @@ nav {
   display: flex;
   justify-content: space-between;
 }
-#personal-info img {
-  margin-top: 0;
-  height: 20%;
+#personal-info .profile-pic {
+  width: 100px; /* width of container */
+  height: 100px; /* height of container */
+  object-fit: cover;
 }
 #text-info {
   margin-top: 5%;

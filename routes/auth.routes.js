@@ -142,7 +142,10 @@ router.post('/userprofile/edit',fileUploader.single('pictureURL'),(req,res,next)
       userFromDB.pictureURL = req.file.path;
     }
     userFromDB.save()
-    .then(()=>res.redirect('/userprofile'))
+    .then((userFromDB)=>{
+      console.log('USER UPDATED', userFromDB)
+      res.render('users/user-profile',{user:userFromDB})
+    })
     .catch(err=>next(err))
   })
   .catch(err=>next(err))
