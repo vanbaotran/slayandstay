@@ -11,9 +11,11 @@
                 <a href='/myorders/{{_id}}'>
                   <p>{{this.productId.[0].productName}}</p>
                 </a>
-                 <p>Total: {{total}}€</p>
+                
+                <p>{{formattedDate}}</p>
               </div>
-              <p>{{formattedDate}}</p>
+              <p class='total'> {{total}}€</p>
+             
       </div>
 
     {{/each}}

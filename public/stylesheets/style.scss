@@ -63,9 +63,11 @@ main {
 .logo {
   text-align: center;
   display: inline-block;
+  width:40%;
 }
 .logo img {
-  width:40%;
+  max-width: 100%;
+  width:100%;
 }
 /*
 ########   #######  ######## ########  #######  ##     ##    ##    ##    ###    ##     ##    ########     ###    ########  
@@ -461,7 +463,6 @@ img {
   margin:1px;
 }
 .productDetails .image {
-  height: 65%;
   display: flex;
 }
 .img.active {width:75%;}
@@ -672,11 +673,15 @@ section p {
 */
 #my-orders .productInfo {
   flex-direction: column;
-  margin-left:3%;
-  padding:0;
+  margin-left:15px;
+  margin-top: 10px;
+}
+#my-orders .total {
+  margin-top: 10px;
 }
 #my-orders .product-line {
-  margin: 2%;
+  align-items: flex-start;
+
 }
 .product-line a {
   margin-top:0;
@@ -687,8 +692,8 @@ section p {
   width: 100%;
 }
 #my-orders p {
+  
   text-align: left;
-  margin-top:2%;
   margin-block-end: 0;
   margin-block-start: 0;
 }
