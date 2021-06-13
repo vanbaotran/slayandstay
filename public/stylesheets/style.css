@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 body {
-  margin: 5%;
+  margin: 15px;
   box-sizing: border-box;
   padding: 0;
   font: 14px "EB Garamond", Helvetica, Arial, sans-serif; }
@@ -343,14 +343,14 @@ nav {
 
 /*common with product details page*/
 .productInfo {
-  width: 100%;
-  margin: 1% auto;
+  margin: 1% 10px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between; }
 
 .productInfo .wishlist {
-  width: 100%; }
+  width: 100%;
+  max-width: 100%; }
 
 .product-img {
   width: 100%; }
@@ -430,6 +430,9 @@ h4 {
 ##        ##    ##  ##     ## ##     ## ##     ## ##    ##    ##       ##     ## ##          ##    ##     ##  ##  ##       ##    ## 
 ##        ##     ##  #######  ########   #######   ######     ##       ########  ########    ##    ##     ## #### ########  ######  
 */
+.productDetails .heart {
+  margin: 10px; }
+
 img {
   max-width: 100%; }
 
@@ -437,6 +440,7 @@ img {
   margin: 1px; }
 
 .productDetails .image {
+  height: 400px;
   display: flex; }
 
 .img.active {
@@ -481,7 +485,8 @@ img {
 
 .productName {
   margin: 0;
-  font-size: 1em; }
+  font-size: 1em;
+  font-weight: bolder; }
 
 .btn {
   margin-top: 3px;
@@ -543,9 +548,6 @@ section p {
   justify-content: space-between;
   align-self: flex-start;
   margin: 5%; }
-
-.product-line img {
-  width: 40%; }
 
 .product-line h4 {
   margin-bottom: 2%; }
@@ -632,12 +634,14 @@ section p {
   border: 0.1px solid #FCF5F0;
   box-shadow: 2px 2px 2px #FCF5F0; }
 
-#wishlist .heart {
-  width: 100%; }
+#wishlist .productInfo {
+  flex-direction: column; }
+
+#wishlist .productInfo p {
+  margin-block-start: 0; }
 
 #wishlist a {
-  display: inline-block;
-  width: 40%; }
+  display: inline-block; }
 
 /*
 ##     ## ##    ##     #######  ########  ########  ######## ########   ######  
@@ -661,8 +665,7 @@ section p {
 
 .product-line a {
   margin-top: 0;
-  display: inline-block;
-  width: 100%; }
+  width: 40%; }
 
 #my-orders img {
   width: 100%; }
