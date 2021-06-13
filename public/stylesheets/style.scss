@@ -117,7 +117,6 @@ nav {
   display: block;
 } 
 #menuToggle{
-
   display: block;
   position: relative;
   left: -5%;
@@ -462,6 +461,7 @@ img {
   margin:1px;
 }
 .productDetails .image {
+  height: 65%;
   display: flex;
 }
 .img.active {width:75%;}

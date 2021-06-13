@@ -435,6 +435,7 @@ img {
   margin: 1px; }
 
 .productDetails .image {
+  height: 65%;
   display: flex; }
 
 .img.active {
