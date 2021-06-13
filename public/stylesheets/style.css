@@ -434,8 +434,10 @@ img {
 .productDetails img {
   margin: 1px; }
 
+.image img {
+  height: 65%; }
+
 .productDetails .image {
-  height: 65%;
   display: flex; }
 
 .img.active {
@@ -550,7 +552,7 @@ section p {
   margin-bottom: 2%; }
 
 #shoppingBag .productInfo {
-  margin-top: 0;
+  margin-top: 5px;
   flex-direction: column;
   justify-content: flex-start;
   margin-left: 5%; }
