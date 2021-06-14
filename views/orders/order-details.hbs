@@ -24,8 +24,8 @@
     {{/if}}
 <div class='card review'>
     <form action='/myorders/{{theOrder._id}}/submitReview' method="POST">
-    <label>
-    Rate this product:
+    <label id='rating-line'>
+    <p>Rate this product:</p>
       <div class="rating">
         <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
         <label for="star5">☆</label>
@@ -48,7 +48,7 @@
         Review:
         <input class='details' type="text" name='reviewDetails'>
     </label>
-        <button class='btn smallBtn'>Submit review</button>
+        <button class='btn topBtn'>Submit review</button>
     </form>
 </div>
 
