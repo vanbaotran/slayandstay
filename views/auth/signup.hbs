@@ -1,39 +1,43 @@
+
+<div class="card">
+
 <div id="signup">
   <h2>Signup</h2>
   <h2> WELCOME TO THE CLUB!!!</h2>
   <form action="/signup" method="POST" enctype="multipart/form-data">
     <label>
-      First Name
+      First Name:
       <input type="text" name="firstName" placeholder="Your first name" />
     </label>
-<br>
      <label>
-      Last Name
+       Last Name :
       <input type="text" name="lastName" placeholder="Your last name" />
     </label>
-    <br>
     <label>
-      Email
+      Email  :   
       <input type="email" id="input-email" name="email" placeholder="Your email" />
     </label>
-<br>
     <label>
-      Password
-      <input type="password" name="password" id="password" placeholder="********" />
-      <i class= "bi bi-eye-slash" id= "togglePassword"><img src="/images/icon/eye opened.png"></i>
+      Password  :
+      <input type="password" name="password" id="pwd" placeholder="********" />
+      <i class="fas fa-eye" id="eye"></i>
     </label>
-    <br>
-    <label> Upload a picture <input type="file" name="pictureURL" id="user-photo"/> </label>
+    <label> Upload a picture: <input type="file" class="uploadbtn" name="pictureURL" id="user-photo"/> <i class="fa fa-camera fa-3x"></i></label>
 
-     <button class ="btn-blue"> Sign Up</button>
+    </div></div>
 
+ 
+     <button class ="btn-blue"> Sign Up</button> 
+
+</form>
 {{#if errorMessage}}
 {{errorMessage}}
 {{/if}}
 
-  </form>
 
-       <button class ="btn-brown"> Log In</button>
 
-</div>
+<section id="linkbuttons">
+       <a class="login-btnlink" href='/login'>Log In</a> </section>
+
+
 

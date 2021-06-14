@@ -71,13 +71,15 @@ $heart.forEach(el=>el.onclick = function () {
 
 //PasswordToggle
 
-const togglePassword = document.querySelector('#togglePassword');
-const password = document.querySelector('#password');
+const pwd = document.getElementById('pwd');
+const eye = document.getElementById('eye');
 
-togglePassword.addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-    password.setAttribute('type', type);
-    // toggle the eye / eye slash icon
-    this.classList.toggle('bi-eye');
-});
+eye.addEventListener('click', togglePass);
+
+function togglePass(){
+
+eye.classList.toggle('active');
+
+(pwd.type == 'password') ? pwd.type = 'text':
+pwd.type = 'password';
+}
