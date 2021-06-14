@@ -466,6 +466,9 @@ h4 {
 .productDetails .heart {
   margin: 10px; }
 
+.productDetails .wishlist {
+  width: 25px; }
+
 img {
   max-width: 100%; }
 
