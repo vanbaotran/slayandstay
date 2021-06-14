@@ -363,7 +363,7 @@ nav {
   justify-content: space-between; }
 
 .productInfo .wishlist {
-  width: 100%;
+  width: 10px;
   max-width: 100%; }
 
 .product-img {
@@ -375,7 +375,7 @@ nav {
   margin: 5%; }
 
 .eachProduct .heart {
-  width: 50%;
+  width: 100%;
   margin-left: auto;
   margin-right: 0; }
 
@@ -750,7 +750,6 @@ h5 {
   background-color: #FCF5F0;
   border-radius: 32px;
   padding: 30px;
-  hheight: 400px;
   overflow: hidden; }
 
 label {
@@ -768,14 +767,66 @@ label {
   float: right;
   clear: both; }
 
-#pwd {
+.pwd {
   position: relative;
-  z-index: auto; }
+  float: right; }
 
 .fas {
   position: absolute;
   right: 10px;
   top: 3px; }
+
+.fas.active {
+  color: #7AB9C1; }
+
+.fa-camera {
+  margin-left: 50px;
+  color: #987561;
+  cursor: pointer;
+  margin-top: 30px; }
+
+.uploadbtn {
+  display: none; }
+
+#linkbuttons {
+  margin-bottom: 2%;
+  height: 32px;
+  border-radius: 32px;
+  border-style: none;
+  font-family: EB Garamond;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  justify-content: center;
+  text-align: center; }
+
+.login-btnlink {
+  background-color: #987561;
+  color: #FEFCFB;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px; }
+
+.login-btnlink:hover {
+  background-color: #D6C8C0; }
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+#linkbuttons .singup-btnlink {
+  background-color: #7AB9C1;
+  color: #FEFCFB;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px; }
+
+.singup-btnlink:hover {
+  background-color: #CAE3E6; }
 
 /*
  #######  ########  ########  ######## ########     ########  ######## ########    ###    #### ##        ######  

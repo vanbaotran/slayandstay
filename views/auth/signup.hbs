@@ -1,38 +1,35 @@
-
 <div class="card">
-
-  <div id="signup">
-
-    <h2> WELCOME TO THE CLUB!!!</h2>
-    <form action="/signup" method="POST" enctype="multipart/form-data">
-      <label>
-        First Name:
-        <input type="text" name="firstName" placeholder="Your first name" />
-      </label>
-      <label>
-        Last Name :
-        <input type="text" name="lastName" placeholder="Your last name" />
-      </label>
-      <label>
-        Email  :   
-        <input type="email" id="input-email" name="email" placeholder="Your email" />
-      </label>
-      <label id="pwd">
-        Password  :
-        <input type="password" name="password"  placeholder="********" />
+<div id="signup">
+  <h2>Signup</h2>
+  <h2> WELCOME TO THE CLUB!!!</h2>
+  <form action="/signup" method="POST" enctype="multipart/form-data">
+    <label>
+      First Name:
+      <input type="text" name="firstName" placeholder="Your first name" />
+    </label>
+     <label>
+       Last Name :
+      <input type="text" name="lastName" placeholder="Your last name" />
+    </label>
+    <label>
+      Email  :
+      <input type="email" id="input-email" name="email" placeholder="Your email" />
+    </label>
+    <label>
+      Password  :
+      <div class="pwd">
+        <input type="password" name="password" id="pwd" placeholder="********" />
         <i class="fas fa-eye" id="eye"></i>
-      </label>
-      <label> Upload a picture: <input type="file" class="uploadbtn" name="pictureURL" id="user-photo"/> <i class="fa fa-camera fa-3x"></i></label>
-  </form>
-  </div>
-</div>
-     <button class ="btn topBtn"> Sign Up</button> 
-
-
+      </div>
+    </label>
+    <label> Upload a picture: <input type="file" class="uploadbtn" name="pictureURL" id="user-photo"/> <i class="fa fa-camera fa-3x"></i></label>
+    </div></div>
+     <button class ="btn topBtn"> Sign Up</button>
+</form>
 {{#if errorMessage}}
 {{errorMessage}}
 {{/if}}
-  <a href='/signup'><button class="btn bottomBtn">Log in</button></a>
-
+<section>
+       <a  href='/login'><button class='btn bottomBtn'>Log In</button> </a> </section>
 
 

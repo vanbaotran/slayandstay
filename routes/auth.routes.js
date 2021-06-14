@@ -98,6 +98,7 @@ router.post('/login', (req, res, next) => {
         return;
       } else if (bcrypt.compareSync(password, user.passwordHash)) {
         req.session.currentUser = user;
+        console.log('LOGIN???',user)
         res.render('users/user-profile',{user})
         //if the shopping cart is not empty, redirect to /checkout
         if(req.session.cart){
