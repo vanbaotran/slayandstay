@@ -9,13 +9,12 @@
         <div class='productInfo'>
           <p>{{this.productName}}</p>
           <p>{{this.price}}€</p>
-          {{!-- <p>Size:{{this.size}}</p> --}}
+     
            </div>
     
-          <a href='/products/{{this._id}}/favorite'>
-            {{!-- <div class='wishlist'> --}}
+          <a class='heart-link' href='/products/{{this._id}}/favorite'>
                 <img class='heart' src='https://res.cloudinary.com/vanbaotran/image/upload/v1623145429/photos/heart-filled_njjmsq.png'>
-            {{!-- </div> --}}
+        
         </a>
 
     </div>

@@ -1,19 +1,23 @@
 {{!-- views/auth/login.hbs --}}
+<div class="card">
+
 
 <div id="form">
   <h2>WELCOME BACK!</h2>
   <form action="/login" method="POST">
-    <label for="input-email">Email</label>
-    <input type="text" name="email" placeholder="Your Email" />
+    <label for="input-email">Email:
+    <input type="text" name="email" placeholder="Your Email" /> </label>
 
-    <label for="input-password">Password</label>
-    <input type="password" name="password" id="input-password" placeholder="********" />
+    <label id='pwd'for="input-password">Password: 
+    <input type="password" name="password" id="pwd" placeholder="********" /><i class="fas fa-eye" id="eye"></i> </label> </div></div>
 
-    <button type="submit">Login</button>
+    <button class = "btn topBtn" type="submit">Login</button>
+
+    </form>
   
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
-        <a href='/signup'>Sign up</a>
-  </form>
-</div>
+      <a href='/signup'><button class="btn bottomBtn"> Sign up</button></a>
+  
+

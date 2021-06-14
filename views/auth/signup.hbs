@@ -1,39 +1,38 @@
-<div id="signup">
-  <h2>Signup</h2>
-  <h2> WELCOME TO THE CLUB!!!</h2>
-  <form action="/signup" method="POST" enctype="multipart/form-data">
-    <label>
-      First Name
-      <input type="text" name="firstName" placeholder="Your first name" />
-    </label>
-<br>
-     <label>
-      Last Name
-      <input type="text" name="lastName" placeholder="Your last name" />
-    </label>
-    <br>
-    <label>
-      Email
-      <input type="email" id="input-email" name="email" placeholder="Your email" />
-    </label>
-<br>
-    <label>
-      Password
-      <input type="password" name="password" id="password" placeholder="********" />
-      <i class= "bi bi-eye-slash" id= "togglePassword"><img src="/images/icon/eye opened.png"></i>
-    </label>
-    <br>
-    <label> Upload a picture <input type="file" name="pictureURL" id="user-photo"/> </label>
 
-     <button class ="btn-blue"> Sign Up</button>
+<div class="card">
+
+  <div id="signup">
+
+    <h2> WELCOME TO THE CLUB!!!</h2>
+    <form action="/signup" method="POST" enctype="multipart/form-data">
+      <label>
+        First Name:
+        <input type="text" name="firstName" placeholder="Your first name" />
+      </label>
+      <label>
+        Last Name :
+        <input type="text" name="lastName" placeholder="Your last name" />
+      </label>
+      <label>
+        Email  :   
+        <input type="email" id="input-email" name="email" placeholder="Your email" />
+      </label>
+      <label id="pwd">
+        Password  :
+        <input type="password" name="password"  placeholder="********" />
+        <i class="fas fa-eye" id="eye"></i>
+      </label>
+      <label> Upload a picture: <input type="file" class="uploadbtn" name="pictureURL" id="user-photo"/> <i class="fa fa-camera fa-3x"></i></label>
+  </form>
+  </div>
+</div>
+     <button class ="btn topBtn"> Sign Up</button> 
+
 
 {{#if errorMessage}}
 {{errorMessage}}
 {{/if}}
+  <a href='/signup'><button class="btn bottomBtn">Log in</button></a>
 
-  </form>
 
-       <button class ="btn-brown"> Log In</button>
-
-</div>
 

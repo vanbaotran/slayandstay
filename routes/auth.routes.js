@@ -136,14 +136,18 @@ router.post('/userprofile/edit',fileUploader.single('pictureURL'),(req,res,next)
     userFromDB.email = req.body.email;
     const hashedPassword = bcrypt.hashSync(req.body.password, salt)
     userFromDB.passwordHash = hashedPassword;
-    console.log('hinh cu',userFromDB.pictureURL)
-    if (typeof req.file ==='undefined'){
-      userFromDB.pictureURL = 'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'
-    } else {
+    console.log('hinh cu',userFromDB)
+    if (typeof req.file !=='undefined'){
+    //   userFromDB.pictureURL = 'https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'
+    // } else {
       userFromDB.pictureURL = req.file.path;
     }
     userFromDB.save()
-    .then(()=>res.redirect('/userprofile'))
+    .then(()=>{
+      console.log('CURRENT USER',req.session.currentUser)
+      userFromDB = req.session.currentUser;
+      res.redirect('/userprofile')
+    })
     .catch(err=>next(err))
   })
   .catch(err=>next(err))

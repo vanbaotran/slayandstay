@@ -37,6 +37,15 @@ a {
 main {
   overflow: hidden; }
 
+input {
+  border-radius: 15px;
+  border: 1px solid #C1ACA0; }
+
+::placeholder {
+  font: 14px "EB Garamond", Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
+  text-align: center; }
+
 /*
 ##    ##    ###    ##     ##         ########     ###    ########  
 ###   ##   ## ##   ##     ##         ##     ##   ## ##   ##     ## 
@@ -122,7 +131,7 @@ nav {
   display: block;
   position: relative;
   left: -5%;
-  z-index: 1;
+  z-index: 7;
   -webkit-user-select: none;
   user-select: none; }
 
@@ -193,7 +202,8 @@ nav {
 
 #menu li {
   padding: 10px 0;
-  font-size: 1.3em; }
+  font-size: 1.3em;
+  z-index: 8; }
 
 #menuToggle input:checked ~ ul {
   transform: none; }
@@ -469,7 +479,7 @@ img {
 
 #productName {
   font-style: normal;
-  font-weight: bold;
+  font-weight: 900;
   font-size: 2em;
   margin-top: 0;
   margin-bottom: 0;
@@ -645,7 +655,16 @@ section p {
   margin-block-start: 0; }
 
 #wishlist a {
-  display: inline-block; }
+  display: inline-block;
+  width: 40%; }
+
+#wishlist .heart-link {
+  width: 20%; }
+
+#wishlist .heart {
+  wwidth: 50px;
+  display: inline-block;
+  text-align: right; }
 
 /*
 ##     ## ##    ##     #######  ########  ########  ######## ########   ######  
@@ -668,8 +687,7 @@ section p {
   align-items: flex-start; }
 
 .product-line a {
-  margin-top: 0;
-  width: 40%; }
+  margin-top: 0; }
 
 #my-orders img {
   width: 100%; }
@@ -698,45 +716,48 @@ h5 {
 ########  #######   ######   #### ##    ##    ##        ##     ##  ######   ########*/
 .btn-blue {
   margin-bottom: 2%;
-  width: 50%;
-  height: 32px;
+  width: 50%; }
+
+.productText {
+  float: left; }
+
+#signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.card {
+  background-color: #FCF5F0;
   border-radius: 32px;
-  border-style: none;
-  font-family: EB Garamond;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 21px;
-  color: #FEFCFB;
-  background-color: #7AB9C1; }
+  padding: 30px; }
 
-.btn-blue:hover {
-  background: #CAE3E6; }
-
-.btn-brown {
-  margin-bottom: 2%;
-  width: 50%;
-  height: 32px;
-  border-radius: 32px;
-  border-style: none;
-  font-family: EB Garamond;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 21px;
-  color: #FEFCFB;
-  background-color: #987561; }
-
-.btn-brown:hover {
-  background: #D6C8C0; }
+label {
+  float: left;
+  clear: left;
+  width: 250px;
+  margin-bottom: 20px; }
 
 .signup i {
   margin-left: -30px;
   cursor: pointer;
   max-width: 10%; }
 
-.productText {
-  float: left; }
+.card {
+  height: 400px;
+  overflow: hidden; }
+
+.card input {
+  float: right;
+  clear: both; }
+
+#pwd {
+  position: relative;
+  z-index: auto; }
+
+.fas {
+  position: absolute;
+  right: 10px;
+  top: 3px; }
 
 /*
  #######  ########  ########  ######## ########     ########  ######## ########    ###    #### ##        ######  
@@ -792,5 +813,63 @@ h5 {
 .date {
   width: 50%;
   text-align: center; }
+
+.fas {
+  cursor: pointer;
+  color: #987561; }
+
+.fas.active {
+  color: #7AB9C1; }
+
+.fa-camera {
+  margin-left: 50px;
+  color: #987561;
+  cursor: pointer;
+  margin-top: 30px; }
+
+.uploadbtn {
+  display: none; }
+
+#linkbuttons {
+  margin-bottom: 2%;
+  height: 32px;
+  border-radius: 32px;
+  border-style: none;
+  font-family: EB Garamond;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  justify-content: center;
+  text-align: center; }
+
+.login-btnlink {
+  background-color: #987561;
+  color: #FEFCFB;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px; }
+
+.login-btnlink:hover {
+  background-color: #D6C8C0; }
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+#linkbuttons .singup-btnlink {
+  background-color: #7AB9C1;
+  color: #FEFCFB;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px; }
+
+.singup-btnlink:hover {
+  background-color: #CAE3E6; }
+
+/*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */
