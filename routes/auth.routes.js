@@ -91,14 +91,13 @@ router.post('/login', (req, res, next) => {
     return;
   }
  
-  User.findOne({ email})
+  User.findOne({email})
     .then(user => {
       if (!user) {
         res.render('auth/login', { errorMessage: 'Email is not registered. Please sign up if you do not have an account.' });
         return;
       } else if (bcrypt.compareSync(password, user.passwordHash)) {
         req.session.currentUser = user;
-        console.log('LOGIN???',user)
         res.render('users/user-profile',{user})
         //if the shopping cart is not empty, redirect to /checkout
         if(req.session.cart){
