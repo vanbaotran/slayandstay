@@ -594,6 +594,9 @@ section p {
   justify-content: flex-start;
   margin-left: 5%; }
 
+#shoppingBag img {
+  width: 180px; }
+
 .priceSection h4 {
   text-align: right; }
 
