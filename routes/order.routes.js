@@ -145,6 +145,7 @@ router.get('/myorders/:id',(req,res,next)=>{
         Order.findById(orderId)
         .populate('productId')
         .then(orderFromDB=>{
+            orderFromDB.formattedDate = dayjs(orderFromDB.createdAt).format('MMM D, YYYY')
             res.render('orders/order-details',{theOrder: orderFromDB})
         })
         .catch(err=>next(err))

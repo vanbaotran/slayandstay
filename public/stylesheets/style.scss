@@ -406,6 +406,7 @@ h4 {
   clear: both; }
 
 .rating {
+  display: flex;
   width: 90px;
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -416,7 +417,7 @@ h4 {
   float: right;
   display: inline;
   padding: 0;
-  margin: 0;
+  margin-right: 0;
   position: relative;
   width: 1.1em;
   cursor: pointer;
@@ -435,6 +436,12 @@ h4 {
   position: absolute;
   left: 0;
   color: #FFD700; }
+.review .details {
+  height: 4em;
+}
+.smallBtn {
+  background-color: #95C7CE;
+}
 
 /*
 ########  ########   #######  ########  ##     ##  ######  ########    ########  ######## ########    ###    #### ##        ######  
@@ -663,7 +670,6 @@ section p {
   width:20%;
 }
 #wishlist .heart {
-  wwidth:50px;
   display: inline-block;
   text-align: right;
 }
@@ -679,6 +685,7 @@ section p {
 */
 #my-orders .productInfo {
   flex-direction: column;
+  width: 30%;
   margin-left: 15px;
   margin-top: 10px; }
 
@@ -688,10 +695,10 @@ section p {
 #my-orders .product-line {
   align-items: flex-start; }
 
-.product-line a {
+#my-orders .product-line a {
   margin-top: 0;
-  // 2width: 40%;
- }
+  width: 40%;
+}
 
 #my-orders img {
   width: 100%; }
@@ -739,46 +746,8 @@ h5 {
 label {
   float: left;
   clear: left;
-  width: 250px;
+  width: 300px;
   margin-bottom: 20px; }
-
-// .btn-blue {
-//   margin-top: 15%;
-//   margin-bottom: 2%;
-//   width: 100%;
-//   height: 32px;
-//   border-radius: 32px;
-//   border-style: none;
-//   font-family: EB Garamond;
-//   font-style: normal;
-//   font-weight: bold;
-//   font-size: 16px;
-//   line-height: 21px;
-//   color: #FEFCFB;
-//   background-color: #7AB9C1; }
-
-// .btn-blue:hover {
-//   background: #CAE3E6; }
-
-// .btn-brown {
-//   margin-bottom: 2%;
-//   width: 100%;
-//   height: 32px;
-//   border-radius: 32px;
-//   border-style: none;
-//   font-family: EB Garamond;
-//   font-style: normal;
-//   font-weight: bold;
-//   font-size: 16px;
-//   line-height: 21px;
-//   color: #FEFCFB;
-//   background-color: #987561;
-//   justify-content: center; 
-// }
-
-// .btn-brown:hover {
-//   background: #D6C8C0; 
-// }
 
 .signup i {
   margin-left: -30px;
@@ -788,7 +757,7 @@ label {
   height: 400px;
   overflow: hidden;
 }
-.card input {
+.card input, .rating label {
   float: right;
   clear: both;
 }
@@ -810,6 +779,9 @@ label {
 ##     ## ##    ##  ##     ## ##       ##    ##     ##     ## ##          ##    ##     ##  ##  ##       ##    ## 
  #######  ##     ## ########  ######## ##     ##    ########  ########    ##    ##     ## #### ########  ######
 */
+#order-details img {
+  width: 40%;
+}
 #order-details {
   background-color: #FCF5F0;
   border-radius: 15px;
@@ -820,9 +792,8 @@ label {
   justify-content: space-between; }
 
 #order-details .productInfo {
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 5%; }
+ width: 60%;
+ }
 
 #order-details .productInfo p {
   margin-block-start: 0em;
@@ -836,25 +807,9 @@ label {
   font-size: 1.2em;
   font-weight: bold; }
 
-.reviewFrom {
-  display: flex;
-  background-color: pink; }
-
-#rating, #headline, .txt-center {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between; }
-
-#rating, #headline, .txt-center p {
-  margin-block-start: 0;
-  margin-block-end: 0; }
-
-.txt-center input {
-  height: 400%; }
-
 .date {
-  width: 50%;
-  text-align: center; }
+  width: 90%;
+  text-align: right; }
 
 .fas {
   cursor: pointer;
