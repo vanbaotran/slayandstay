@@ -20,12 +20,12 @@
     <img src='{{user.pictureURL}}'>
     {{!-- <label> Upload a picture <input type="file" name="pictureURL" id="user-photo"/></label> --}}
     <label> Upload a picture: <input type="file" class="uploadbtn" name="pictureURL" id="user-photo"/> <i class="fa fa-camera fa-3x"></i></label>
-    <button>Submit my edit</button>
+    
 
 {{#if errorMessage}}
 {{errorMessage}}
 {{/if}}
-
+  <button class='btn topBtn'>Submit my edit</button>
   </form>
 </div>
 
