@@ -22,6 +22,7 @@
     <p>{{theReview.reviewDetails}}</p>
     <a href='/{{theReview._id}}/deleteReview'>Delete this review</a>
     {{/if}}
+</div>
 <div class='card review'>
     <form action='/myorders/{{theOrder._id}}/submitReview' method="POST">
     <label id='rating-line'>
@@ -50,6 +51,6 @@
     </label>
         <button class='btn topBtn'>Submit review</button>
     </form>
-</div>
+
 
 
