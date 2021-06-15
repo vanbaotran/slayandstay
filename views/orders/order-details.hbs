@@ -3,7 +3,7 @@
 {{#each theOrder.productId}}
 <div id='order-details'>
     <div class='product-line'>
-    <img src='{{this.pictureURL.[0]}}'>
+        <img src='{{this.pictureURL.[0]}}'>
         <div class='productInfo'>
             <div>
                 <p class='productName'>{{this.productName}}</p><p>Size:{{this.size}}</p> 
@@ -12,6 +12,7 @@
         </div>
     </div>
     {{/each}}
+    <div id='line'></div>
      <p id='total'>Total: {{theOrder.total}}€</p>
     <p class='date'>{{theOrder.formattedDate}}</p>
     </div>
