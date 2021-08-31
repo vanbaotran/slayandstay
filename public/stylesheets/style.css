@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
-body {
+
+  body {
   margin: 15px;
   box-sizing: border-box;
   padding: 0;
-  font: 14px "EB Garamond", Helvetica, Arial, sans-serif; }
+  font: 14px "EB Garamond", Helvetica, Arial, sans-serif;
+ }
 
 h3 {
   font-size: 1.5em; }
@@ -90,13 +92,17 @@ input {
   margin: 0;
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 50%;
   width: 88%;
   padding: 2% 6%;
   background-color: #FCF5F0;
   display: flex;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  transform: translateX(-50%);
+}
 
 #bottom-nav-bar a {
   margin-bottom: 0;
@@ -197,7 +203,7 @@ nav {
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+  transform: translate(-500%, 0);
   transition: transform 0.3s cubic-bezier(0.77, 0.2, 0.05, 1); }
 
 #menu li {
@@ -217,6 +223,12 @@ nav {
 ##     ## ##     ## ##     ## ##       ##        ##     ## ##    ##  ##       
 ##     ##  #######  ##     ## ######## ##        ##     ##  ######   ######## 
 */
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin: 0 auto;
+}
 #homepage h2 {
   text-align: center;
   font-size: 1.3em; }
@@ -483,7 +495,6 @@ img {
   margin: 1px; }
 
 .productDetails .image {
-  height: 400px;
   display: flex; }
 
 .img.active {
@@ -626,6 +637,9 @@ section p {
   color: #CDCECF;
   text-align: right; }
 
+#summary #total {
+  margin-right: 0; }
+
 /*
  #######  ########  ########  ######## ########      ######   #######  ##    ## ######## #### ########  ##     ##    ###    ######## ####  #######  ##    ## 
 ##     ## ##     ## ##     ## ##       ##     ##    ##    ## ##     ## ###   ## ##        ##  ##     ## ###   ###   ## ##      ##     ##  ##     ## ###   ## 
@@ -752,7 +766,9 @@ h5 {
   width: 50%; }
 
 .productText {
-  float: left; }
+  float: left; 
+  margin-bottom: 70px;
+}
 
 #signup {
   display: flex;
@@ -852,11 +868,6 @@ label {
 */
 #order-details img {
   width: 40%; }
-
-#order-details {
-  border: 1px solid #FCF5F0;
-  padding: 2%;
-  margin: 10px; }
 
 #order-details .product-line {
   align-items: flex-start;
